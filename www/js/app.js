@@ -1,4 +1,4 @@
-var app = angular.module('Gula', ['ionic', 'Gula.controllers']);
+var app = angular.module('Gula', ['ionic', 'Gula.controllers','LocalStorageModule']);
 
 app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content|tel|geo|mailto|sms|market):|data:image\//);
