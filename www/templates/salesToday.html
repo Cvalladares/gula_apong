@@ -6,17 +6,17 @@
     <form id="salesToday-form9" class="list">
       <label class="item item-input item-stacked-label" id="salesToday-input15">
         <span class="input-label">Price per Item</span>
-        <input type="number" placeholder="">
+        <input type="number" placeholder="" ng-model="farmer.price" >
       </label>
       <label class="item item-input item-stacked-label" id="salesToday-input14">
         <span class="input-label">Gula Apong Produced (Containers)</span>
-        <input type="number" placeholder="">
+        <input type="number" placeholder="" ng-model="farmer.yield_weight">
       </label>
       <label class="item item-input item-stacked-label" id="salesToday-input21">
         <span class="input-label">Date</span>
-        <input type="date" placeholder="">
+        <input type="date" placeholder="" ng-model="farmer.date">
       </label>
-      <a ui-sref="dashboard()" id="salesToday-button16" class="button button-positive button-block">Submit!</a>
+      <a ng-click="submit()" id="salesToday-button16" class="button button-positive button-block">Submit!</a>
       <div class="spacer" style="height: 60px;"></div>
       <div id="salesToday-markdown2" class="show-list-numbers-and-dots">
         <p style="color:#000000;">We would like to understand how much
