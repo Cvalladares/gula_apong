@@ -34,9 +34,14 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       url: '/dashboard',
       templateUrl: 'templates/dashboard.html',
       controller: 'dashboardCtrl'
+    })
+    .state('myProfile', {
+      url: '/myprofile',
+      templateUrl: 'templates/myProfile.html',
+      controller: 'myProfileController'
     });
 
-  $urlRouterProvider.otherwise('/login')
+  $urlRouterProvider.otherwise('/dashboard')
 });
 
 app.run(function($ionicPlatform) {

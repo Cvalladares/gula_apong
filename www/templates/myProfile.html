@@ -1,0 +1,19 @@
+<ion-view title="My Profile" id="page6">
+  <ion-content padding="true" class="has-header">
+    <form id="myProfile-form12" class="list">
+      <label class="item item-input item-stacked-label" id="myProfile-input13">
+        <span class="input-label">My Name</span>
+        <input type="text" placeholder="" ng-model="farmer.MyName">
+      </label>
+      <label class="item item-input item-stacked-label" id="myProfile-input16">
+        <span class="input-label">My Phone Number</span>
+        <input type="tel" placeholder="" ng-model="farmer.Phone_Number">
+      </label>
+      <label class="item item-input item-stacked-label" id="myProfile-input17">
+        <span class="input-label">My Address</span>
+        <input type="text" placeholder="" ng-model="farmer.Address">
+      </label>
+      <a ng-click="submit()" ui-sref="dashboard()" id="myFarm-button5" class="button button-positive button-block">Submit!</a>
+    </form>
+  </ion-content>
+</ion-view>

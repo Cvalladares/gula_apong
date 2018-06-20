@@ -3,7 +3,7 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
   var db = PouchDBService.getDb
 
   // Initializing the scope to its previous value
-  db.get("123").then(function (res) {
+  db.get("myFarm").then(function (res) {
     $scope.farmer = {trees: res.trees, distance: res.distance}
   })
     .catch(function () {
@@ -13,11 +13,11 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
   // This function is binded to the submit button
   $scope.submit = function () {
     // Update Farm information
-    db.get("123").then(function (res) {
+    db.get("myFarm").then(function (res) {
       // Instance where the farm exists
       console.log("Document Exists. Updating.")
       db.put({
-        _id: "123",
+        _id: "myFarm",
         _rev: res._rev,
         trees: $scope.farmer.trees,
         distance: $scope.farmer.distance
@@ -31,7 +31,7 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
         // Instance where the farm does not exist
         console.log("The document does not exist. Creating a new doc")
         db.put({
-          _id: "123",
+          _id: "myFarm",
 
           trees: $scope.farmer.trees,
           distance: $scope.farmer.distance
