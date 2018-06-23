@@ -10,6 +10,8 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
     $ionicHistory.clearHistory();
     $ionicHistory.clearCache();
 
+    localStorageService.clearAll();
+
     $scope.user = {id: "", couchPassword: ""};
   });
 
@@ -19,13 +21,10 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
     PouchDBService.initPouchDbs();
     PouchDBService.initSyncForUser()
       .then(function () {
-     //   if (PouchDBServiqce.getProfileDb().get(password) == user.couchPassword){ // is the password in database the same as password entered? then ok.
-        $state.go('dashboard')
-
-      //}
-  })
+        $state.go('dashboard');
+      })
       .catch(function (err) {
-        $cordovaDialogs.alert('Whoops!', err.message);
+        $cordovaDialogs.alert('Whoops!', 'Username or Password incorrect');
       });
   }
 

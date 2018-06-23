@@ -37,7 +37,7 @@ angular.module("Gula.services", [])
         var deferred = $q.defer();
         var currentUser = localStorageService.get('user');
         if (!currentUser || !currentUser.id || syncActive) {
-          deferred.resolve();
+          deferred.reject();
           return deferred.promise;
         }
 
