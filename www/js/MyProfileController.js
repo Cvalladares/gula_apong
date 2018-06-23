@@ -13,22 +13,23 @@ angular.module('Gula.controllers').controller('myProfileController', function ($
 
   // This function is binded to the submit button
   $scope.submit = function () {
-    // Update Farm information
+    // Update Profile information
     db.get("profile").then(function (res) {
-      // Instance where the farm exists
+      // Instance where the profile exists
       console.log("Document Exists. Updating.")
       db.put({
         _id: "profile",
         _rev: res._rev,
         MyName: $scope.farmer.MyName,
         Phone_Number: $scope.farmer.Phone_Number,
-        Address: $scope.farmer.Address
+        Address: $scope.farmer.Address,
+        Password: $scope.farmer.Password
       }).then(function (res) {
         console.log(res);
       })
 
     }).catch(function (res) {
-      // Instance where the farm does not exist
+      // Instance where the profile does not exist
       console.log("The document does not exist. Creating a new doc")
       db.put({
         _id: "profile",

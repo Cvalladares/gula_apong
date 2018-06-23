@@ -23,5 +23,8 @@
       "version": "",
       "locator": "ios"
     }
-  ]
+  ],
+  "dependencies": {
+    "ng-cordova": "^0.1.27-alpha"
+  }
 }

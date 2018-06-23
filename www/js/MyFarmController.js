@@ -3,12 +3,12 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
   var db = PouchDBService.getFarmDb();
 
   // Initializing the scope to its previous value
-  db.get("myFarm")
-    .then(function (res) {
-      $scope.farmer = {trees: res.trees, distance: res.distance}
+  db.get("myFarm") //what is myFarm? the name of a farm??? what is in db? A dictionairy but what are the values and kes?
+    .then(function (res) { //what is res?
+      $scope.farmer = {trees: res.trees}
     })
     .catch(function () {
-      $scope.farmer = {trees: 0, distance: 0}
+      $scope.farmer = {trees: 0}
     });
 
   // This function is binded to the submit button
@@ -22,7 +22,7 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
           _id: "myFarm",
           _rev: res._rev,
           trees: $scope.farmer.trees,
-          distance: $scope.farmer.distance
+
         }).then(function (res) {
           console.log(res);
         })
@@ -34,7 +34,6 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
           _id: "myFarm",
 
           trees: $scope.farmer.trees,
-          distance: $scope.farmer.distance
         }).then(function (res) {
           console.log(res)
         })

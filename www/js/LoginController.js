@@ -19,9 +19,11 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
     PouchDBService.initPouchDbs();
     PouchDBService.initSyncForUser()
       .then(function () {
+     //   if (PouchDBServiqce.getProfileDb().get(password) == user.couchPassword){ // is the password in database the same as password entered? then ok.
         $state.go('dashboard')
 
-      })
+      //}
+  })
       .catch(function (err) {
         $cordovaDialogs.alert('Whoops!', err.message);
       });
