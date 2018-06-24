@@ -25,3 +25,17 @@ You can see dependencies and versions in _bower.json_. Command line tools are li
 | Cordova | 6.5.0 |
 | Nodejs | 10.4.1 |
 | bower | 1.8.0 |
+
+
+#### Setup data (manually)
+Create databases for user _user_1_farm_, _user_1_production_, _user_1_profile_.
+
+Create user in __users_ table
+```bash
+http -v PUT http://admin:admin@localhost:5984/_users/org.couchdb.user:1 name=1 type=user roles:='[]' password=password
+```
+
+Set newly created user as database owner
+```bash
+echo "{\"admins\": {\"names\": [\"1\"], \"roles\": [\"admins\"] }, \"members\": {\"names\": [\"1\"], \"roles\": [\"admins\"]}}" | http PUT http://admin:admin@localhost:5984/user_1_production/_security
+```
