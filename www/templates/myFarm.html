@@ -6,14 +6,9 @@
     <form id="myFarm-form10" class="list">
       <label class="item item-input item-stacked-label" id="myFarm-input20">
         <span class="input-label">Number of Trees </span>
-        <input type="number" placeholder="" ng-model="farmer.trees"> <!-- we moeten nog een object ''farmer'' maken met de goeie
-        attributen -->
+        <input type="number" placeholder="" ng-model="farmer.trees">
       </label>
-      <label class="item item-input item-stacked-label" id="myFarm-input11">
-        <span class="input-label">Distance from home (km)</span>
-        <input type="number" placeholder="" ng-model="farmer.distance"> <!-- we moeten nog een object ''farmer'' maken met de goeie
-        attributen -->
-      </label>
+
       <a ng-click="submit()" ng- id="myFarm-button5" class="button button-positive button-block">Submit!</a>
     </form>
     <div class="spacer" style="width: 300px; height: 60px;"></div>
@@ -24,4 +19,4 @@
   </ion-content>
 </ion-view>
 
-<!--id gives name of element/knop/whatever. ngclick: if you click then call the function that is in the string-->
+<!--id gives name of element/button. ngclick: if you click, then function that is in the string is called. the function can be found in corresponding controller.-->

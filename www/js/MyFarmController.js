@@ -3,8 +3,8 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
   var db = PouchDBService.getFarmDb();
 
   // Initializing the scope to its previous value
-  db.get("myFarm") //what is myFarm? the name of a farm??? what is in db? A dictionairy but what are the values and kes?
-    .then(function (res) { //what is res?
+  db.get("myFarm")
+    .then(function (res) {
       $scope.farmer = {trees: res.trees}
     })
     .catch(function () {
