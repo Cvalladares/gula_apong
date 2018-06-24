@@ -25,5 +25,3 @@ You can see dependencies and versions in _bower.json_. Command line tools are li
 | Cordova | 6.5.0 |
 | Nodejs | 10.4.1 |
 | bower | 1.8.0 |
-
-

@@ -3,7 +3,7 @@ angular.module('Gula.controllers').controller('salesTodayCtrl',  function ($scop
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
-    PouchDBService.getProductionDb.post({
+    PouchDBService.getProductionDb().post({
 
       yield_weight: $scope.farmer.yield_weight,
       date: $scope.farmer.date,
