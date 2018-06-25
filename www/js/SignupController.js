@@ -2,7 +2,7 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
 
   var db = PouchDBService.getProfileDb();
 
-  $scope.farmer = {
+  $scope.user = {
     FirstName: "",
     LastName: "",
     Phone_Number: "",
@@ -13,12 +13,12 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
 
   db.put({
     _id: "profile",
-    FirstName: $scope.farmer.FirstName,
-    LastName: $scope.farmer.LastName,
-    Phone_Number: $scope.farmer.PhoneNumber,
-    Address: $scope.farmer.Address,
-    Region: $scope.farmer.Region,
-    Role: $scope.farmer.Role
+    FirstName: $scope.user.FirstName,
+    LastName: $scope.user.LastName,
+    Phone_Number: $scope.user.PhoneNumber,
+    Address: $scope.user.Address,
+    Region: $scope.user.Region,
+    Role: $scope.user.Role
 
   })
   // go back to login

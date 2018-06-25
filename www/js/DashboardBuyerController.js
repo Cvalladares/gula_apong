@@ -5,17 +5,17 @@ angular.module('Gula.controllers').controller('dashboardBuyerCtrl', function ($s
 
   db.get("demand")
     .then(function (res) {
-      $scope.farmer = {demand: res.trees}
+      $scope.user = {demand: res.trees}
     })
     .catch(function () {
-      $scope.farmer = {demand: 0}
+      $scope.user = {demand: 0}
     });
 
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
     var orderData = {
-      demand: $scope.farmer.demand,
+      demand: $scope.user.demand,
       date: JSON.stringify(new Date()) //somewhere else in the code we used a different thing for the current date. should make it consistent.
     };
 

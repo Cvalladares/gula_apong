@@ -6,10 +6,10 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
   // Initializing the scope to its previous value
   db.get("myFarm")
     .then(function (res) {
-      $scope.farmer = {trees: res.trees}
+      $scope.user = {trees: res.trees}
     })
     .catch(function () {
-      $scope.farmer = {trees: 0}
+      $scope.user = {trees: 0}
     });
 
   // This function is binded to the submit button
@@ -22,7 +22,7 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
         db.put({
           _id: "myFarm",
           _rev: res._rev,
-          trees: $scope.farmer.trees,
+          trees: $scope.user.trees,
 
         }).then(function (res) {
           console.log(res);
@@ -34,7 +34,7 @@ angular.module('Gula.controllers').controller('myFarmCtrl', function ($scope, $s
         db.put({
           _id: "myFarm",
 
-          trees: $scope.farmer.trees,
+          trees: $scope.user.trees,
         }).then(function (res) {
           console.log(res)
         })

@@ -1,12 +1,12 @@
 angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, PouchDBService, localStorageService,
                                                                        $cordovaDialogs, $ionicHistory, $cordovaGeolocation) {
 
-  $scope.farmer = {trees: 0};
+  $scope.user = {trees: 0};
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
     var farmData = {
-      trees: $scope.farmer.trees,
+      trees: $scope.user.trees,
       coords: coords,
       date: JSON.stringify(new Date())
     };
