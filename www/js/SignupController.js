@@ -43,6 +43,7 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
       }).then(function (res) {
         console.log(res);
       })
+      console.log(res);
 
     }).catch(function (res) {
       // Instance where the profile does not exist
