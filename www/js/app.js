@@ -36,13 +36,43 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'addAreaCtrl'
     })
 
-    .state('dashboard', {
-      url: '/dashboard',
-      templateUrl: 'templates/dashboard.html',
-      controller: 'dashboardCtrl'
+    .state('dashboardProducer', {
+      url: '/dashboardProducer',
+      templateUrl: 'templates/dashboardProducer.html',
+      controller: 'dashboardProducerCtrl'
     })
 
-   // .state('myProfile', {
+    .state('dashboardBuyer', {
+      url: '/dashboardBuyer',
+      templateUrl: 'templates/dashboardBuyer.html',
+      controller: 'dashboardBuyerCtrl'
+    })
+
+    .state('dashboardMinister', {
+      url: '/dashboardMinister',
+      templateUrl: 'templates/dashboardMinister.html',
+      controller: 'dashboardMinisterCtrl'
+    })
+
+    .state('help', {
+      url: '/help',
+      templateUrl: 'templates/help.html',
+      controller: 'helpCtrl'
+    })
+
+    .state('overviewOfSellers', {
+      url: '/overviewOfSellers',
+      templateUrl: 'templates/overviewOfSellers.html',
+      controller: 'overviewOfSellersCtrl'
+    })
+
+    .state('productionOverview', {
+      url: '/productionOverview',
+      templateUrl: 'templates/productionOverview.html',
+      controller: 'productionOverviewCtrl'
+    })
+
+  // .state('myProfile', {
    //   url: '/myprofile',
     //  templateUrl: 'templates/myProfile.html',
      // controller: 'myProfileCtrl'

@@ -13,27 +13,40 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
     $scope.user = {id: "", couchPassword: ""};
   });
 
+
   $scope.authUser = function () {
     localStorageService.set('user', $scope.user);
     PouchDBService.initPouchDbs();
     PouchDBService.initSyncForUser()
       .then(function () {
-        $state.go('dashboard');
+        $scope.goToInterface();
       })
       .catch(function (err) {
         $cordovaDialogs.alert( 'Username or Password incorrect', 'Whoops!');
       });
   }
 
-  //user_profile_info = getDbFromUser(username) or getProfileDb()
-  // if db.get(role)==producer:
-  // go to producerdashboard
-  // else if db.get(role)==buyer:
-  // go to buyerdashboard
-  // else if db.get(role)==minister:
-  // go to ministerdashboard
-  // else: //role == admin
-  // go to producerdashboard (we dont have admindashboard yet)
+  $scope.goToInterface = function () {
+    var db = PouchDBService.getProfileDb();
+
+    // Initializing the scope to its previous value
+    db.get("myProfile")
+      .then(function (res) {
+        if ($scope.farmer.role == "producer") {
+          $state.go('dashboardProducer');
+        } else if ($scope.farmer.role == "buyer") {
+          $state.go('dashboardBuyer');
+        } else if ($scope.farmer.role == "minister") {
+          $state.go('dashboardMinister');
+        } else // $scope.farmer.role == admin
+          $state.go('dashboardProducer');
+
+      })
+      .catch(function () {
+        //something
+      });
+  }
+
 
 });
 
