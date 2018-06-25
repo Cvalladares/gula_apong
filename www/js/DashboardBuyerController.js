@@ -1,5 +1,5 @@
 angular.module('Gula.controllers').controller('dashboardBuyerCtrl', function ($scope, PouchDBService, localStorageService,
-                                                                              $cordovaDialogs, $ionicHistory, $cordovaGeolocation) {
+                                                                              $cordovaDialogs, $ionicHistory, $state, $cordovaGeolocation) {
   // Fetch database Singleton
   var db = PouchDBService.getDemandDb();
 
@@ -16,12 +16,13 @@ angular.module('Gula.controllers').controller('dashboardBuyerCtrl', function ($s
 
     var orderData = {
       demand: $scope.farmer.demand,
-      date: JSON.stringify(new Date()) //somewhere else in the code we used a different thing for the curent date. should make it consistent.
+      date: JSON.stringify(new Date()) //somewhere else in the code we used a different thing for the current date. should make it consistent.
     };
 
     PouchDBService.getDemandDb().post(orderData)
       .then(function (res) {
-        $ionicHistory.goBack();
+        $state.go('overviewOfSellers');
+        //of: $ionicHistory.goBack();
       })
       .catch(function (err) {
         $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');

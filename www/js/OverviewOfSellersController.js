@@ -1,3 +1,3 @@
-angular.module('Gula.controllers').controller('overviewSellersCtrl', function ($scope, PouchDBService, localStorageService,
+angular.module('Gula.controllers').controller('overviewOfSellersCtrl', function ($scope, PouchDBService, localStorageService,
                                                                               $cordovaDialogs, $ionicHistory, $cordovaGeolocation) {
 })
