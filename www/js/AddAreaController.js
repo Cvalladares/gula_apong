@@ -1,24 +1,45 @@
-angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, PouchDBService, localStorageService,
+angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
                                                                        $cordovaDialogs, $ionicHistory, $cordovaGeolocation) {
 
-  $scope.user = {trees: 0};
+
+  var edit = false;
+  $scope.$on('$ionicView.enter', function (e) {
+    $scope.farmer = {trees: 0};
+    if ($rootScope.areaId) {
+      edit = true;
+      PouchDBService.getFarmDb().get($rootScope.areaId)
+        .then(function (res) {
+          $scope.farmer = res;
+          $scope.$digest();
+        })
+    }
+  });
+
+  $scope.$on('$ionicView.leave', function (e) {
+    delete $rootScope.areaId;
+  });
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
     var farmData = {
-      trees: $scope.user.trees,
+      trees: $scope.farmer.trees,
       coords: coords,
       date: JSON.stringify(new Date())
     };
-    console.log(farmData);
-    PouchDBService.getFarmDb().post(farmData)
-      .then(function (res) {
-        $ionicHistory.goBack();
-      })
-      .catch(function (err) {
-        $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
-        console.error(err);
-      });
+
+    var promise;
+    if (edit) {
+      promise = PouchDBService.getFarmDb().put($scope.farmer);
+    } else {
+      promise = PouchDBService.getFarmDb().post(farmData);
+    }
+
+    promise.then(function (res) {
+      $ionicHistory.goBack();
+    }).catch(function (err) {
+      $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
+      console.error(err);
+    });
   };
 
   var coords = [];
@@ -30,7 +51,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, P
     }, function (position) {
       var lat = position.coords.latitude;
       var long = position.coords.longitude;
-      coords.push([lat, long])
+      coords.push([lat, long]);
       console.log(lat + " " + long);
     });
 
