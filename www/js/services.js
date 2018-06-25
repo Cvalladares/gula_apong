@@ -31,7 +31,7 @@ angular.module("Gula.services", [])
         return pouchDBs.profile;
       },
       getDemandDb: function () {
-        return pouchDBs.profile;
+        return pouchDBs.demand;
       },
       initPouchDbs: initPouchDbs,
 

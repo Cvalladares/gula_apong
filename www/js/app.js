@@ -1,4 +1,4 @@
-var app = angular.module('Gula', ['ionic', 'Gula.controllers','LocalStorageModule', 'Gula.services', 'ngCordova']);
+var app = angular.module('Gula', ['ionic', 'Gula.controllers', 'LocalStorageModule', 'Gula.services', 'ngCordova']);
 
 app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content|tel|geo|mailto|sms|market):|data:image\//);
@@ -73,10 +73,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
     })
 
   // .state('myProfile', {
-   //   url: '/myprofile',
-    //  templateUrl: 'templates/myProfile.html',
-     // controller: 'myProfileCtrl'
-    //})
+  //   url: '/myprofile',
+  //  templateUrl: 'templates/myProfile.html',
+  // controller: 'myProfileCtrl'
+  //})
 
   $urlRouterProvider.otherwise('/login')
 });

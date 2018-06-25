@@ -1,7 +1,16 @@
 angular.module('Gula.controllers').controller('dashboardBuyerCtrl', function ($scope, PouchDBService, localStorageService,
                                                                               $cordovaDialogs, $ionicHistory, $cordovaGeolocation) {
+  // Fetch database Singleton
+  var db = PouchDBService.getDemandDb();
 
-  $scope.farmer.demand = {demand: 0};
+  db.get("demand")
+    .then(function (res) {
+      $scope.farmer = {demand: res.trees}
+    })
+    .catch(function () {
+      $scope.farmer = {demand: 0}
+    });
+
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
