@@ -1,6 +1,6 @@
-angular.module('Gula.controllers').controller('myProfileController', function ($scope, $stateParams, PouchDBService) {
+angular.module('Gula.controllers').controller('myProfileController', function ($scope, $stateParams, $state, $ionicHistory, PouchDBService) {
   // Fetch database Singleton
-  var db = PouchDBService.getDb
+  var db = PouchDBService.getProductionDb()
 
   // Initializing the scope to its previous value
   db.get("profile").then(function (res) {
