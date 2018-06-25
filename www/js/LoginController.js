@@ -25,6 +25,16 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
       });
   }
 
+  //user_profile_info = getDbFromUser(username) or getProfileDb()
+  // if db.get(role)==producer:
+  // go to producerdashboard
+  // else if db.get(role)==buyer:
+  // go to buyerdashboard
+  // else if db.get(role)==minister:
+  // go to ministerdashboard
+  // else: //role == admin
+  // go to producerdashboard (we dont have admindashboard yet)
+
 });
 
 

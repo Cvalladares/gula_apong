@@ -5,19 +5,19 @@
       <ion-list id="signup-list1">
         <label class="item item-input" id="signup-input6">
           <span class="input-label">First name</span>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="" ng-model="farmer.FirstName">
         </label>
-        <label class="item item-input" id="signup-input8">
+        <label class="item item-input" id="signup-input100">
           <span class="input-label">Last name</span>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="" ng-model="farmer.LastName">
         </label>
         <label class="item item-input" id="signup-input9">
           <span class="input-label">Address</span>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="" ng-model="farmer.Address">
         </label>
         <label class="item item-input" id="signup-input7">
           <span class="input-label">Phone number</span>
-          <input type="tel" placeholder="">
+          <input type="text" placeholder="" ng-model="farmer.PhoneNumber">
         </label>
         <label class="item item-select" id="signup-input8">
           <span class="input-label">I am in.. </span>
@@ -27,6 +27,7 @@
             <option>Pinggan Jaya</option>
             <option>Lawas</option>
           </select>
+          <input type="text" placeholder="" ng-model="farmer.Region">
         </label>
 
       </ion-list>
@@ -44,14 +45,17 @@
         <label class="item item-select" id="signup-select1">
           <span class="input-label">I am..</span>
           <select>
-            <option>Gula Apong producer</option>
-            <option>Gula Apong buyer</option>
-            <option>Ministry</option>
+            <option>Producer</option>
+            <option>Buyer</option>
+            <option>Minister</option>
             <option>Admin</option>
           </select>
+          <input type="text" placeholder="" ng-model="user.Role">
         </label>
       </ion-list>
-      <a ui-sref="login()" id="signup-button11" class="button button-stable button-block">Sign up</a>
+     <a ui-sref="login()" id="signup-button11" class="button button-stable button-block">Sign up</a>q
+
     </form>
   </ion-content>
 </ion-view>
+

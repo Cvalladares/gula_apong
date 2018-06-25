@@ -42,11 +42,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'dashboardCtrl'
     })
 
-    .state('myProfile', {
-      url: '/myprofile',
-      templateUrl: 'templates/myProfile.html',
-      controller: 'myProfileCtrl'
-    });
+   // .state('myProfile', {
+   //   url: '/myprofile',
+    //  templateUrl: 'templates/myProfile.html',
+     // controller: 'myProfileCtrl'
+    //})
 
   $urlRouterProvider.otherwise('/login')
 });
