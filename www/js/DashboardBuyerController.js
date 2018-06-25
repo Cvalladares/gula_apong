@@ -1,5 +1,10 @@
 angular.module('Gula.controllers').controller('dashboardBuyerCtrl', function ($scope, PouchDBService, localStorageService,
                                                                               $cordovaDialogs, $ionicHistory, $state, $cordovaGeolocation) {
+  $ionicHistory.nextViewOptions({
+    disableAnimate: true,
+    disableBack: false
+  });
+
   // Fetch database Singleton
   var db = PouchDBService.getDemandDb();
 
