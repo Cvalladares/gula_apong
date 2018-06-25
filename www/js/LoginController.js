@@ -10,11 +10,8 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
     $ionicHistory.clearHistory();
     $ionicHistory.clearCache();
 
-    localStorageService.clearAll();
-
     $scope.user = {id: "", couchPassword: ""};
   });
-
 
   $scope.authUser = function () {
     localStorageService.set('user', $scope.user);
@@ -24,7 +21,7 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
         $state.go('dashboard');
       })
       .catch(function (err) {
-        $cordovaDialogs.alert('Whoops!', 'Username or Password incorrect');
+        $cordovaDialogs.alert( 'Username or Password incorrect', 'Whoops!');
       });
   }
 

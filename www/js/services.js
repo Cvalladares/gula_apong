@@ -3,7 +3,7 @@ angular.module("Gula.services", [])
 
     var databases = ['farm', 'production', 'profile'];
     var syncActive = false;
-    var remoteCouchDbUrl = 'http://192.168.0.164:5984';
+    var remoteCouchDbUrl = 'http://10.64.115.70:5984';
 
     var pouchDBs = {};
     var activeSyncs = {};

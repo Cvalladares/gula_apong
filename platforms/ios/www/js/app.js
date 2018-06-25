@@ -18,16 +18,22 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'signupCtrl'
     })
 
-    .state('salesToday', {
-      url: '/saleentry',
-      templateUrl: 'templates/salesToday.html',
-      controller: 'salesTodayCtrl'
+    .state('productionThisWeek', {
+      url: '/productionThisWeek',
+      templateUrl: 'templates/productionThisWeek.html',
+      controller: 'productionThisWeekCtrl'
     })
 
-    .state('myFarm', {
-      url: '/myfarm',
-      templateUrl: 'templates/myFarm.html',
-      controller: 'myFarmCtrl'
+    .state('myAreas', {
+      url: '/myAreas',
+      templateUrl: 'templates/myAreas.html',
+      controller: 'myAreasCtrl'
+    })
+
+    .state('addArea', {
+      url: '/addArea',
+      templateUrl: 'templates/addArea.html',
+      controller: 'addAreaCtrl'
     })
 
     .state('dashboard', {
@@ -35,10 +41,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       templateUrl: 'templates/dashboard.html',
       controller: 'dashboardCtrl'
     })
+
     .state('myProfile', {
       url: '/myprofile',
       templateUrl: 'templates/myProfile.html',
-      controller: 'myProfileController'
+      controller: 'myProfileCtrl'
     });
 
   $urlRouterProvider.otherwise('/login')

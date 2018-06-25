@@ -7,6 +7,8 @@
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
   <allow-navigation href="http://192.168.0.164:8100"/>
+  <allow-navigation href="http://10.64.113.113:8100"/>
+  <allow-navigation href="http://10.64.115.70:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -45,6 +47,9 @@
     <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png"/>
   </platform>
   <platform name="ios">
+    <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+      <string>need location access to find things nearby</string>
+    </edit-config>
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
     <icon height="57" src="resources/ios/icon/icon.png" width="57"/>
