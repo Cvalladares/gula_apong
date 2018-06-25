@@ -51,7 +51,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
   $urlRouterProvider.otherwise('/login')
 });
 
-app.run(function ($ionicPlatform) {
+app.run(function ($ionicPlatform, PouchDBService) {
   $ionicPlatform.ready(function () {
     if (window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -66,6 +66,8 @@ app.run(function ($ionicPlatform) {
     if (window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+    PouchDBService.initSyncForUser();
 
   });
 });
