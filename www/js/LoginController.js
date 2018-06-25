@@ -16,6 +16,7 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
 
   $scope.authUser = function () {
     localStorageService.set('user', $scope.user);
+
     PouchDBService.initPouchDbs();
     PouchDBService.initSyncForUser()
       .then(function () {

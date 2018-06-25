@@ -1,7 +1,7 @@
 angular.module("Gula.services", [])
   .factory("PouchDBService", function ($rootScope, $q, localStorageService) {
 
-    var databases = ['farm', 'production', 'profile'];
+    var databases = ['farm', 'production', 'profile', 'demand'];
     var syncActive = false;
     var remoteCouchDbUrl = 'http://10.64.115.70:5984';
 
@@ -28,6 +28,9 @@ angular.module("Gula.services", [])
         return pouchDBs.production;
       },
       getProfileDb: function () {
+        return pouchDBs.profile;
+      },
+      getDemandDb: function () {
         return pouchDBs.profile;
       },
       initPouchDbs: initPouchDbs,

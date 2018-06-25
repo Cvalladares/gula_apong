@@ -6,7 +6,7 @@
         <input type="text" placeholder="">
       </label>
       <label class="item item-input item-stacked-label" id="welcomeToTheWebshop-input15">
-        <input type="text" placeholder="">
+        <input type="text" placeholder="" ng-model="farmer.demand">
       </label>
       <label class="item item-select" id="welcomeToTheWebshop-select2">
         <span class="input-label"></span>
@@ -14,7 +14,9 @@
           <option>kg</option>
           <option>Cans (1 can is 30 kg)</option>
         </select>
+        <input type="text" placeholder="" ng-model="farmer.unit">
       </label>
+      <a ng-click="submit()" id="somebutton " class="button button-positive button-block">Submit!</a>
     </form>
   </ion-content>
 </ion-view>
