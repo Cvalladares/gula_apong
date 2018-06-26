@@ -36,15 +36,16 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
           });
       })
       .then(function (res) {
-        navigatePage(res.Role);
+        navigatePage(res);
       })
       .catch(function (err) {
-        $cordovaDialogs.alert('Username or Password incorrect', 'Whooptidi scoop, poop!');
+        $cordovaDialogs.alert('Username or Password incorrect', 'Whooptidi scoop!');
         localStorageService.remove('user');
       });
   };
 
-  function navigatePage(role) {
+  function navigatePage(profile) {
+    var role = profile.Role;
     if (role === "Producer") {
       $state.go('dashboardProducer');
     } else if (role === "Buyer") {

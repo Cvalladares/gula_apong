@@ -35,7 +35,16 @@ Create user in __users_ table
 http -v PUT http://admin:admin@localhost:5984/_users/org.couchdb.user:1 name=1 type=user roles:='[]' password=password
 ```
 
+Create databases for a user manually
+```
+http -v PUT http://admin:admin@localhost:5984/user_1_farm
+http -v PUT http://admin:admin@localhost:5984/user_1_production
+http -v PUT http://admin:admin@localhost:5984/user_1_profile
+```
+
 Set newly created user as database owner
 ```bash
 echo "{\"admins\": {\"names\": [\"1\"], \"roles\": [\"admins\"] }, \"members\": {\"names\": [\"1\"], \"roles\": [\"admins\"]}}" | http PUT http://admin:admin@localhost:5984/user_1_production/_security
+echo "{\"admins\": {\"names\": [\"1\"], \"roles\": [\"admins\"] }, \"members\": {\"names\": [\"1\"], \"roles\": [\"admins\"]}}" | http PUT http://admin:admin@localhost:5984/user_1_farm/_security
+echo "{\"admins\": {\"names\": [\"1\"], \"roles\": [\"admins\"] }, \"members\": {\"names\": [\"1\"], \"roles\": [\"admins\"]}}" | http PUT http://admin:admin@localhost:5984/user_1_profile/_security
 ```
