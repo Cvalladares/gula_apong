@@ -4,12 +4,12 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
 
   var edit = false;
   $scope.$on('$ionicView.enter', function (e) {
-    $scope.farmer = {trees: 0};
+    $scope.user = {trees: 0};
     if ($rootScope.areaId) {
       edit = true;
       PouchDBService.getFarmDb().get($rootScope.areaId)
         .then(function (res) {
-          $scope.farmer = res;
+          $scope.user = res;
           $scope.$digest();
         })
     }
@@ -22,14 +22,14 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
   $scope.submit = function () { //the code below is executed when someone presses submit
 
     var farmData = {
-      trees: $scope.farmer.trees,
+      trees: $scope.user.trees,
       coords: coords,
       date: JSON.stringify(new Date())
     };
 
     var promise;
     if (edit) {
-      promise = PouchDBService.getFarmDb().put($scope.farmer);
+      promise = PouchDBService.getFarmDb().put($scope.user);
     } else {
       promise = PouchDBService.getFarmDb().post(farmData);
     }

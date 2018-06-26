@@ -4,7 +4,7 @@
       <img src="img/BZwuqrg6Sim5ubxpo83a_GulaTree.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
     <ion-list id="myAreaS-list4">
-        <ion-item ng-repeat="area in allAreas">
+        <ion-item ng-repeat="area in allAreas | orderBy:'date':true">
           {{area.trees}}
           <ion-option-button class="button-assertive" ng-click="deleteArea(area)">
             Delete

@@ -1,5 +1,5 @@
 angular.module('Gula.controllers').controller('productionThisWeekCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory) {
-  $scope.user = {yield_weight: 0, date: new Date(Date.now())};
+  $scope.user = {yield_weight: 0, date: JSON.stringify(new Date())};
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
