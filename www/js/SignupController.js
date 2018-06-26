@@ -1,4 +1,9 @@
-angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $stateParams, PouchDBService) {
+angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory) {
+
+  $ionicHistory.nextViewOptions({
+    disableAnimate: true,
+    disableBack: false
+  });
 
   var db = PouchDBService.getProfileDb();
 

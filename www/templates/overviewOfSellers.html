@@ -20,13 +20,18 @@ ionic serve
     <label class="item item-select" id="signup-select1">
       <span class="input-label">I want to buy from..</span>
       <select>
-        <option>Judi</option>
+        <option>Judi <fieldset>
+        </fieldset>
+        </option>
         <option>Zul</option>
         <option>SuperProducer</option>
         <option>Beginner</option>
       </select>
       <input type="text" placeholder="" ng-model="user.seller">
+      <a ng-click="submit()" id="productionThisWeek-button12" class="button button-positive button-block">Submit!</a>
     </label>
+
+
   </ion-content>
 </ion-view>
 
@@ -36,3 +41,12 @@ ionic serve
 
 <!-- add their stock to this overview-->
 <!-- initialize the stock on their production this week-->
+
+<!-- <legend>Contact information</legend> -->
+
+<label for="phone">Phone:</label>
+<input type="tel" id="phone" name="phone"
+       placeholder="123-456-7890"
+       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+       required />
+<!--    <span class="validity"></span>-->
