@@ -6,11 +6,11 @@ It is a hybrid application written using Ionic 1 and Cordova frameworks.
 Pull the project and run `bower install` to download dependencies.
 
 We use Pouchdb and Couchdb to store data locally on mobile device and replicate it to remote database when there is network connection available.
-For instructions about how to install and configure database you can check [this link](https://pouchdb.com/guides/).
+For instructions about how to install and configure the database you can check [this link](https://pouchdb.com/guides/).
 
-Project was checked on Couchdb 1.7.1. After installing the database access [http://localhost:5984/_utils](http://localhost:5984/_utils) to access database UI.
-Dialog will pop up and ask you to change the password.
-Next, you will need to setup CORS. Use your database admin username and password for the second command
+The project was checked on Couchdb 1.7.1. After installing the database, access [http://localhost:5984/_utils](http://localhost:5984/_utils) to access the database UI.
+A dialog will pop up and will ask you to change the password.
+Next, you will need to setup CORS (Cross-origin resource sharing). Use your database admin username and password for the second command
 ```bash
 npm install -g add-cors-to-couchdb
 add-cors-to-couchdb -u USER -p PASSWORD

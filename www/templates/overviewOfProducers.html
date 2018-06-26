@@ -1,0 +1,16 @@
+<ion-view title="Overview of producers" id="page4" style="background-color:default;">
+  <ion-content padding="true" class="has-header">
+
+    <ion-list id="myAreaS-list4">
+      <ion-item ng-repeat="personData in allData| orderBy:'Role':true">
+        {{personData.Role}}
+        {{personData.FirstName}}
+        {{personData.LastName}}
+        {{personData.PhoneNumber}}
+        <!--how to get the production of a producer???? is in other DB-->
+
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

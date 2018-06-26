@@ -12,6 +12,16 @@
     <p> Here you can find an overview of the
       production of Gula Apong in your area.</p>
 
+    <!-- show all active producers, i.e. for example producers that have 8 entries or more over the last 3 months (so out of
+     12 weeks they collected at least 8 weeks). maybe using SQL.
+     We have several databases:
+     per user we have: profileDb: columns are name,home_address,phone,division,role
+     per producer we have: productionDb: rows are yield_weight + week(date)
+     per buyer we have: a database where each row represents an order, the columns are the amount of kg ordered and the seller.
+
+
+     <!-- show a list of all the producers: their names, their #trees, the size of their area and their mobile phone. show in table-->
+
     <div class="list card" id="dashboard-card21">
       <div class=" item item-image">
         <img src="img/demo_production_graph.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
@@ -22,4 +32,3 @@
 
   </ion-content>
 </ion-view>
-
