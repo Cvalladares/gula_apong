@@ -5,7 +5,9 @@
     </div>
     <ion-list id="myAreaS-list4">
         <ion-item ng-repeat="area in allAreas | orderBy:'date':true">
+    <!--      {{area.index}} -->
           {{area.trees}}
+
           <ion-option-button class="button-assertive" ng-click="deleteArea(area)">
             Delete
           </ion-option-button>

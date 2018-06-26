@@ -18,6 +18,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
 
   var edit = false;
   $scope.$on('$ionicView.enter', function (e) {
+
     $scope.user = {trees: 0};
     if ($rootScope.areaId) {
       edit = true;
@@ -34,12 +35,15 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
   });
 
   $scope.submit = function () { //the code below is executed when someone presses submit
-
+    //var new_index = $scope.user.index+1;
     var farmData = {
       trees: $scope.user.trees,
       coords: coords,
-      date: JSON.stringify(new Date())
+      date: JSON.stringify(new Date()),
+    //  index: new_index
+
     };
+
 
     var promise;
     if (edit) {
