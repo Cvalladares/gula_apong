@@ -9,7 +9,6 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
   $scope.$on('$ionicView.enter', function (e) {
     $ionicHistory.clearHistory();
     $ionicHistory.clearCache();
-
     $scope.user = {id: "", couchPassword: ""};
 
     var user = localStorageService.get('user');
