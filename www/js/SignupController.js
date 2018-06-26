@@ -22,7 +22,7 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
     LastName: $scope.user.LastName,
     Phone_Number: $scope.user.PhoneNumber,
     Address: $scope.user.Address,
-    Region: $scope.user.Region,
+    Region: $scope.user.Divison,
     Role: $scope.user.Role
 
   })
