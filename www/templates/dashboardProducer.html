@@ -1,21 +1,25 @@
 <ion-view title="Dashboard" id="page5">
- <!-- <ion-nav-buttons side="right" class="has-header">
-    <button class="button button-icon icon ion-android-contact"> My Profile</button>
-  </ion-nav-buttons>
-  --->
+  <!-- <ion-nav-buttons side="right" class="has-header">
+     <button class="button button-icon icon ion-android-contact"> My Profile</button>
+   </ion-nav-buttons>
+   --->
   <ion-content padding="false" class="has-header">
     <div class="list card" id="dashboard-card21">
       <div class=" item item-image">
-        <img src="img/demo_production_graph.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+        <img src="img/demo_production_graph.png"
+             style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
       </div>
     </div>
-      <div class="list card" id="dashboard-card22">
-        <div class=" item item-image">
-        <img src="img/demo_recommended_price_graph.png" style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+    <div class="list card" id="dashboard-card22">
+      <div class=" item item-image">
+        <img src="img/demo_recommended_price_graph.png"
+             style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
       </div>
+      <div id="cardsPie" class="statsChart"></div>
     </div>
     <div id="dashboard-button-bar1" class="button-bar">
-      <a ui-sref="productionThisWeek()" id="dashboard-button10" class="button button-calm button-block">Add production this week</a>
+      <a ui-sref="productionThisWeek()" id="dashboard-button10" class="button button-calm button-block">Add production
+        this week</a>
     </div>
     <a ui-sref="myAreas()" id="dashboard-button9" class="button button-energized button-block">My Area(s)</a>
   </ion-content>

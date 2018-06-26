@@ -1,17 +1,17 @@
 angular.module('Gula.controllers').controller('productionThisWeekCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory) {
-  $scope.user = {yield_weight: 0, date: JSON.stringify(new Date())};
+  $scope.user = {yield_weight: 0};
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
     PouchDBService.getProductionDb().post({
       yield_weight: $scope.user.yield_weight,
-      date: $scope.user.date,
+      date: JSON.stringify(new Date())
     })
       .then(function (res) {
         $ionicHistory.goBack();
       })
       .catch(function (err) {
-        $cordovaDialogs.alert('Whoops!', 'Data is not stored correctly. Try again.');
+        $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
         console.error(err);
       });
   }

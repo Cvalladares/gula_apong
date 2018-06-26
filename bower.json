@@ -8,9 +8,10 @@
     "angular": "^1.6.3",
     "angular-route": "^1.6.3",
     "angular-local-storage": "^0.7.1",
-    "pouchdb": "^7.0.0",
+    "pouchdb": "6.4.3",
     "lodash": "^4.17.10",
     "pouchdb-authentication": "0.5.5",
-    "ngCordova": "^0.1.27-alpha"
+    "ngCordova": "^0.1.27-alpha",
+    "highcharts": "^6.1.0"
   }
 }
