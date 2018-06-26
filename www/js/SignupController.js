@@ -5,26 +5,19 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
     disableBack: false
   });
 
-  var db = PouchDBService.getProfileDb();
-
   $scope.user = {
     FirstName: "",
     LastName: "",
     Phone_Number: "",
     Address: "",
-    Region: "",
+    Divison: "",
     Role: ""
   };
 
-  db.put({
-    _id: "profile",
-    FirstName: $scope.user.FirstName,
-    LastName: $scope.user.LastName,
-    Phone_Number: $scope.user.PhoneNumber,
-    Address: $scope.user.Address,
-    Region: $scope.user.Region,
-    Role: $scope.user.Role
+  $scope.register = function () {
+    $scope.user._id = "profile";
+    PouchDBService.getProfileDb().put($scope.user);
+    $ionicHistory.goBack();
+  };
 
-  })
-  // go back to login
 });
