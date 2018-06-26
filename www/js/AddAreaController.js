@@ -1,5 +1,19 @@
 angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
-                                                                       $cordovaDialogs, $ionicHistory, $cordovaGeolocation) {
+                                                                       $cordovaDialogs, $ionicHistory, $cordovaGeolocation, CalculateAreaService) {
+
+
+  // You can use https://www.daftlogic.com/projects-google-maps-area-calculator-tool.htm
+  //    to test the calculations.
+  // let coordinates = [
+  //   [1.602810301968369,110.36798244493912],
+  //   [1.6071001528072157,110.37235981005142],
+  //   [1.609073481168485,110.37205940264175],
+  //   [1.60810826644756,110.36901241320083],
+  //   [1.6084514539562023,110.36813264864395],
+  //   [1.6077650788812101,110.3652787782521],
+  //   [1.6053413150518685,110.365729389366]
+  // ];
+
 
 
   var edit = false;
@@ -60,5 +74,6 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
 
   $scope.stopTracking = function () {
     $scope.watch.clearWatch();
+    //console.log(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coordinates))
   };
 });
