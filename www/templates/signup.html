@@ -45,11 +45,11 @@
       <ion-list id="signup-list3">
         <label class="item item-input" id="signup-input10">
           <span class="input-label">Username</span>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="" ng-model="user.username">
         </label>
         <label class="item item-input" id="signup-input12">
           <span class="input-label">Password</span>
-          <input type="password" placeholder="">
+          <input type="password" placeholder="" ng-model="user.password">
         </label>
         <label class="item item-select" id="signup-select1">
           <span class="input-label">I am..</span>
@@ -62,7 +62,7 @@
           <input type="text" placeholder="" ng-model="user.Role">
         </label>
       </ion-list>
-     <a ng-click="register()" id="signup-button11" class="button button-stable button-block">Sign up</a>q
+     <a ng-click="register()" id="signup-button11" class="button button-stable button-block">Sign up</a>
 
     </form>
   </ion-content>

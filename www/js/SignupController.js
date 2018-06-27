@@ -1,4 +1,7 @@
-angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory) {
+angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory,
+                                                                      $http, localStorageService) {
+
+  var signupUrl = 'https://gula-server.herokuapp.com';
 
   $ionicHistory.nextViewOptions({
     disableAnimate: true,
@@ -11,13 +14,36 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
     Phone_Number: "",
     Address: "",
     Divison: "",
-    Role: ""
+    Role: "",
+    username: '',
+    password: '',
   };
 
   $scope.register = function () {
     $scope.user._id = "profile";
-    PouchDBService.getProfileDb().put($scope.user);
-    $ionicHistory.goBack();
+
+    $http({
+      method: 'PUT',
+      url: signupUrl + '/users',
+      data: {id: $scope.user.username, couchPassword: $scope.user.password}
+    })
+      .then(function (res) {
+        console.log(res);
+
+        localStorageService.set('user', {id: $scope.user.username, couchPassword: $scope.user.password});
+
+        delete $scope.user.password;
+        return PouchDBService.initPouchDbs();
+        // return PouchDBService.initSyncForUser();
+
+      })
+      .then(function () {
+        return PouchDBService.getProfileDb().put($scope.user)
+      })
+      .then(function () {
+        $ionicHistory.goBack();
+      });
+
   };
 
 });
