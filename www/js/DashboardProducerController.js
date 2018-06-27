@@ -77,6 +77,7 @@ angular.module('Gula.controllers')
 
       console.log($scope.weeklyProduction);
 
+      // TODO: Define the Name of the farmer owning the Entity
       productionChart.addSeries({
         name: 'Jose Dynamic',
         data: $scope.weeklyProduction

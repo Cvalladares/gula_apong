@@ -13,7 +13,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
   //   [1.6077650788812101,110.3652787782521],
   //   [1.6053413150518685,110.365729389366]
   // ];
-
+ $scope.CalculatedArea = 0;
 
 
   var edit = false;
@@ -39,6 +39,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
     var farmData = {
       trees: $scope.user.trees,
       coords: coords,
+      area: $scope.CalculatedArea,
       date: JSON.stringify(new Date()),
     //  index: new_index
 
@@ -78,6 +79,6 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
 
   $scope.stopTracking = function () {
     $scope.watch.clearWatch();
-    //console.log(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coordinates))
+    $scope.CalculatedArea =(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coordinates))
   };
 });
