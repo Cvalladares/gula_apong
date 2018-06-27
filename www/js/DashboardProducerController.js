@@ -1,7 +1,90 @@
-angular.module('Gula.controllers') .controller('dashboardProducerCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-  function ($scope, $stateParams) {
+angular.module('Gula.controllers')
+
+  .controller('dashboardProducerCtrl', function ($scope, PouchDBService) {
 
 
-  }]);
+
+    // Define the linegraph structure by using highcharts API
+    var productionChart = Highcharts.chart('productionGraph', {
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Gula Apong Production Per Week'
+      },
+      xAxis: {
+        type: 'datetime',
+        title: {
+          text: 'Week'
+        },
+        labels: {
+          rotation: 100
+        }
+      },
+      yAxis: {
+        title: {
+          text: 'Gula Apong Produced (kg)'
+        }
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+      },
+
+      plotOptions: {
+        series: {
+          label: {
+            connectorAllowed: false
+          }
+        }
+      },
+
+      responsive: {
+        rules: [{
+          condition: {
+            maxWidth: 300
+          },
+          chartOptions: {
+            legend: {
+              align: 'center',
+              verticalAlign: 'bottom',
+              layout: 'horizontal'
+            }
+          }
+        }]
+      }
+    });
+
+    // Fetch production database
+    var db = PouchDBService.getProductionDb();
+
+    // Fetch all production entries
+    db.allDocs({
+      include_docs: true,
+      attachments: true
+    }).then(function (res) {
+      var allProductions = _.map(res.rows, 'doc');
+
+      // Define a list to contain all date-yield pairs
+      $scope.weeklyProduction = [];
+
+      allProductions.forEach(function (item) {
+        $scope.weeklyProduction.push([moment(item.date).valueOf(), item.yield_weight]);
+      });
+
+      $scope.weeklyProduction.sort();
+
+      console.log($scope.weeklyProduction);
+
+      productionChart.addSeries({
+        name: 'Jose Dynamic',
+        data: $scope.weeklyProduction
+      });
+
+    }).catch(function (err) {
+      console.log("data failed to be fetched");
+      console.log(err)
+    });
+
+  });
