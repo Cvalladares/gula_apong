@@ -70,7 +70,11 @@ angular.module('Gula.controllers')
       $scope.weeklyProduction = [];
 
       allProductions.forEach(function (item) {
-        $scope.weeklyProduction.push([moment(item.date).valueOf(), item.yield_weight]);
+        var traki = item.date;
+
+
+        var week = moment(traki).valueOf();
+        $scope.weeklyProduction.push([week, item.yield_weight]);
       });
 
       $scope.weeklyProduction.sort();
