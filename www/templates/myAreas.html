@@ -1,12 +1,12 @@
-<ion-view title="My Area(s)" id="page4" style="background-color:default;">
+<ion-view title="My Farm(s)" id="page4" style="background-color:default;">
   <ion-content padding="true" class="has-header">
     <div>
-      <img src="img/BZwuqrg6Sim5ubxpo83a_GulaTree.png" style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+      <img src="img/nipatree_pinggan_jaya_1.png" style="display: block; width: 60%; height: auto; margin-left: auto; margin-right: auto;">
     </div>
     <ion-list id="myAreaS-list4">
         <ion-item ng-repeat="area in allAreas | orderBy:'date':true">
     <!--      {{area.index}} -->
-          {{area.trees}}
+          Farm 1. Trees: {{area.trees}}
 
           <ion-option-button class="button-assertive" ng-click="deleteArea(area)">
             Delete
