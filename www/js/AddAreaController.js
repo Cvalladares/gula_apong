@@ -64,7 +64,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
   var coords = [];
 
   $scope.startTracking = function () {
-    var watch = $cordovaGeolocation.watchPosition({timeout: 3000, enableHighAccuracy: true});
+    var watch = $cordovaGeolocation.watchPosition({timeout: 10000, enableHighAccuracy: false});
     watch.then(null, function (err) {
       console.error(err)
     }, function (position) {
@@ -79,6 +79,6 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
 
   $scope.stopTracking = function () {
     $scope.watch.clearWatch();
-    $scope.CalculatedArea =(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coordinates))
+    $scope.CalculatedArea =(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coords))
   };
 });
