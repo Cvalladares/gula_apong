@@ -7,7 +7,7 @@
         <ion-item ng-repeat="area in allAreas | orderBy:'date':true">
     <!--      {{area.index}} -->
               Farm 1. Trees: {{area.trees}}
-                      Size (ha): 5
+                      Size (m^2): 5
 
           <ion-option-button class="button-assertive" ng-click="deleteArea(area)">
             Delete
@@ -18,7 +18,7 @@
         </ion-item>
       <ion-item ng-repeat="area in allAreas | orderBy:'date':true">
         Farm 2. Trees: 100
-                Size (ha): 10
+                Size (m^2): 10
 
         <ion-option-button class="button-assertive" ng-click="deleteArea(area)">
           Delete
