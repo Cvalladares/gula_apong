@@ -3,10 +3,11 @@ angular.module('Gula.controllers').controller('productionThisWeekCtrl', function
 
   $scope.submit = function () { //the code below is executed when someone presses submit
 
-    PouchDBService.getProductionDb().post({
+    var obj = {
       yield_weight: $scope.user.yield_weight,
-      date: JSON.stringify(new Date())
-    })
+      date: moment.utc(new Date()).toISOString()
+    };
+    PouchDBService.getProductionDb().post(obj)
       .then(function (res) {
         $ionicHistory.goBack();
       })
