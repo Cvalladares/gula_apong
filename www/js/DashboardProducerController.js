@@ -56,40 +56,43 @@ angular.module('Gula.controllers')
       }
     });
 
+    // Define a list to contain all date-yield pairs
+    $scope.weeklyProduction = [];
+
+    // TODO: Define the Name of the farmer owning the Entity
+    productionChart.addSeries({
+      name: 'Jose Dynamic',
+      data: $scope.weeklyProduction
+    });
+
+
     // Fetch production database
     var db = PouchDBService.getProductionDb();
 
-    // Fetch all production entries
-    db.allDocs({
-      include_docs: true,
-      attachments: true
-    }).then(function (res) {
-      var allProductions = _.map(res.rows, 'doc');
+    // TODO not optimal to fetch and draw graph on every page enter
+    $scope.$on('$ionicView.enter', function (e) {
+      db.allDocs({
+        include_docs: true,
+        attachments: true
+      }).then(function (res) {
+        var allProductions = _.map(res.rows, 'doc');
 
-      // Define a list to contain all date-yield pairs
-      $scope.weeklyProduction = [];
+        allProductions.forEach(function (item) {
+          var traki = item.date;
+          var week = moment(traki).valueOf();
+          $scope.weeklyProduction.push([week, item.yield_weight]);
+        });
 
-      allProductions.forEach(function (item) {
-        var traki = item.date;
+        $scope.weeklyProduction.sort();
 
+        console.log($scope.weeklyProduction);
+        productionChart.series[0].setData($scope.weeklyProduction,true);
 
-        var week = moment(traki).valueOf();
-        $scope.weeklyProduction.push([week, item.yield_weight]);
+      }).catch(function (err) {
+        console.log("data failed to be fetched");
+        console.log(err)
       });
 
-      $scope.weeklyProduction.sort();
 
-      console.log($scope.weeklyProduction);
-
-      // TODO: Define the Name of the farmer owning the Entity
-      productionChart.addSeries({
-        name: 'Jose Dynamic',
-        data: $scope.weeklyProduction
-      });
-
-    }).catch(function (err) {
-      console.log("data failed to be fetched");
-      console.log(err)
     });
-
   });

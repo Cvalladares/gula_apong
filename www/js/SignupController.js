@@ -1,12 +1,7 @@
 angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory,
-                                                                      $http, localStorageService) {
+                                                                      $http, localStorageService, $state) {
 
   var signupUrl = 'https://gula-server.herokuapp.com';
-
-  $ionicHistory.nextViewOptions({
-    disableAnimate: true,
-    disableBack: false
-  });
 
   $scope.user = {
     FirstName: "",
@@ -39,9 +34,12 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
       })
       .then(function () {
         return PouchDBService.getProfileDb().put($scope.user)
+          .then(function () {
+            $state.go('/login');
+
+          })
       })
       .then(function () {
-        $ionicHistory.goBack();
       });
 
   };
