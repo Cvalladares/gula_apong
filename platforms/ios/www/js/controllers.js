@@ -1,0 +1,2 @@
+angular.module('Gula.controllers', []);
+
