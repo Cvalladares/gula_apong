@@ -13,7 +13,7 @@ angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scop
   var edit = false;
   $scope.$on('$ionicView.enter', function (e) {
 
-    $scope.user = {FirstName: "", LastName: "", PhoneNumer: "", IsReselling: ""};
+    $scope.user = {FirstName: "", LastName: "", PhoneNumber: "", IsReselling: ""};
     if ($rootScope.customerId) {
       edit = true;
       PouchDBService.getCustomerDb().get($rootScope.customerId)

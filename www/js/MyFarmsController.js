@@ -12,6 +12,10 @@ angular.module('Gula.controllers').controller('myFarmsCtrl', function ($scope, $
 
   });
 
+  $scope.addFarm = function () {
+    $state.go('addFarm');
+  };
+
 
   $scope.deleteArea = function (area) {
     PouchDBService.getFarmDb().get(area._id)
@@ -29,12 +33,12 @@ angular.module('Gula.controllers').controller('myFarmsCtrl', function ($scope, $
 
   $scope.editArea = function (area) {
     $rootScope.areaId = area._id;
-    $state.go('addArea');
+    $state.go('addFarm');
   };
 
   $scope.addArea = function () {
 
-    $state.go('addArea');
+    $state.go('addFarm');
 
   }
 

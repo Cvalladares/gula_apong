@@ -1,6 +1,10 @@
 angular.module('Gula.controllers').controller('myCustomersCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
                                                                        $state, $cordovaDialogs, $ionicHistory) {
 
+  $scope.addCustomer = function () {
+    $state.go('addCustomer');
+  };
+
   $scope.$on('$ionicView.enter', function (e) {
     PouchDBService.getCustomerDb().allDocs({
       include_docs: true,
