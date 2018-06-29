@@ -1,7 +1,7 @@
 angular.module("Gula.services", [])
   .factory("PouchDBService", function ($rootScope, $q, localStorageService) {
 
-    var databases = ['farm', 'production', 'profile', 'customers'];
+    var databases = ['farm', 'production', 'profile', 'customer'];
     var syncActive = false;
     //var remoteCouchDbUrl = 'http://10.64.115.70:5984';
     // var remoteCouchDbUrl = 'http://localhost:5984';
@@ -37,7 +37,7 @@ angular.module("Gula.services", [])
       //     return pouchDBs.demand;
       //   },
       getCustomerDb: function () {
-        return pouchDBs.customers;
+        return pouchDBs.customer;
       },
       initPouchDbs: initPouchDbs,
 
@@ -66,10 +66,10 @@ angular.module("Gula.services", [])
           })
           .then(function () {
             console.info('profile ✔️');
-            return setupSync('customers', couchUser);
+            return setupSync('customer', couchUser);
           })
           .then(function () {
-            console.info('customers ✔️');
+            console.info('customer ✔️');
           });
 
       },

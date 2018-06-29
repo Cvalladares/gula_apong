@@ -5,10 +5,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
 
   $stateProvider
 
-    .state('addArea', {
-      url: '/addArea',
-      templateUrl: 'templates/addArea.html',
-      controller: 'addAreaCtrl'
+    .state('addFarm', {
+      url: '/addFarm',
+      templateUrl: 'templates/addFarm.html',
+      controller: 'addFarmCtrl'
     })
 
     .state('addCustomer', {
@@ -47,10 +47,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'loginCtrl'
     })
 
-    .state('myAreas', {
-      url: '/myAreas',
-      templateUrl: 'templates/myAreas.html',
-      controller: 'myAreasCtrl'
+    .state('myFarms', {
+      url: '/myFarms',
+      templateUrl: 'templates/myFarms.html',
+      controller: 'myFarmsCtrl'
     })
 
     .state('myCustomers', {

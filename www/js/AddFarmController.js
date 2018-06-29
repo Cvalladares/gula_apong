@@ -1,4 +1,4 @@
-angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
+angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
                                                                        $cordovaDialogs, $ionicHistory, $cordovaGeolocation, CalculateAreaService,
                                                                        LoadingAnimation) {
     // You can use https://www.daftlogic.com/projects-google-maps-area-calculator-tool.htm

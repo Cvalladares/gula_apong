@@ -31,10 +31,10 @@ angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scop
   $scope.submit = function () { //the code below is executed when someone presses submit
     //var new_index = $scope.user.index+1;
     var customerData = {
-      FirstName: "scope.user.FirstName",
-      LastName: "scope.user.LastName",
-      PhoneNumber: "scope.user.PhoneNumber",
-      IsReselling: "scope.user.IsReselling",
+      FirstName: $scope.user.FirstName,
+      LastName: $scope.user.LastName,
+      PhoneNumber: $scope.user.PhoneNumber,
+      IsReselling: $scope.user.IsReselling,
 
     };
 
@@ -47,6 +47,7 @@ angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scop
     }
 
     promise.then(function (res) {
+      console.log("we go back");
       $ionicHistory.goBack();
     }).catch(function (err) {
       $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
