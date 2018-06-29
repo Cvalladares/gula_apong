@@ -37,3 +37,4 @@ angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scop
   };
 
 });
+

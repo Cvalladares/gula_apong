@@ -16,7 +16,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
     var edit = false;
     $scope.$on('$ionicView.enter', function (e) {
 
-      $scope.user = {trees: 0, CalculatedArea: 0};
+      $scope.user = {trees: '', CalculatedArea: ''};
       if ($rootScope.areaId) {
         edit = true;
         PouchDBService.getFarmDb().get($rootScope.areaId)
@@ -36,7 +36,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
       var farmData = {
         trees: $scope.user.trees,
         coords: coords,
-        area: $scope.user.CalculatedArea,
+        CalculatedArea: $scope.user.CalculatedArea,
         date: JSON.stringify(new Date()),
         //  index: new_index
 
@@ -106,42 +106,6 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
       console.error(err);
     });
   };
-
-  var addCustomerUrl = 'https://gula-server.herokuapp.com';
-
-  $scope.user = {
-    FirstName: "",
-    LastName: "",
-    PhoneNumber: "",
-    IsReselling: "", //IsReselling: yes if it is middleman, no if it is not a middleman.
-  };
-
-  $scope.register = function () {
-    $scope.user._id = "profile";
-
-    $http({
-      method: 'PUT',
-      url: signupUrl + '/users',
-    })
-      .then(function (res) {
-        console.log(res);
-
-        return PouchDBService.initPouchDbs();
-        // return PouchDBService.initSyncForUser();
-
-      })
-      .then(function () {
-        return PouchDBService.getCustomerDb().put($scope.user)
-          .then(function () {
-            $state.go('/myCustomers');
-
-          })
-      })
-      .then(function () {
-      });
-
-  };
-
 
 
 });
