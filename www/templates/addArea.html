@@ -7,22 +7,33 @@
     <form id="addArea-form16" class="list">
       <label class="item item-input item-stacked-label" id="addArea-input27">
         <span class="input-label">Number of trees</span>
-        <input type="number" placeholder="" ng-model="user.trees">
+        <input type="number" placeholder="type here" ng-model="user.trees">
       </label>
-      <a ng-click="submit()" id="productionThisWeek-button12" class="button button-positive button-block">Submit!</a>
-    </form>
-    <button ng-click="startTracking()" id="addArea-button21" class="button button-positive button-block">Start walk
+
+      Add the size of the farm
+
+      <label class="item item-input item-stacked-label" id="addArea-input28">
+        <span class="input-label">Size of farm</span>
+        <input type="number" placeholder="(optional)" ng-model="user.CalculatedArea">
+      </label>
+
+
+
+
+    or, compute the size of by walking around your farm:
+
+    <button ng-click="startTracking()" id="addArea-button21" class="button button-balanced button-block">Start walk
       around farm
     </button>
-    <button ng-click="stopTracking()" id="addArea-button29" class="button button-positive button-block">End walk around farm
+    <button ng-click="stopTracking()" id="addArea-button29" class="button button-assertive button-block">End walk around
+      farm
     </button>
-   <div class="row">
-     <!--   <div class="col">-->
-         Size of Farm:
-       </div>
-       <div class="col" style="font-size: 27px; font-weight: bold">
-       {{CalculatedArea}}
-       </div>
-     <!--  </div>-->
+    <!--<div class="row">
+      Size of Farm:
+    </div>-->
+
+    <a ng-click="submit()" id="addArea-button12" class="button button-positive button-block">Submit!</a>
+
+    </form>
   </ion-content>
 </ion-view>
