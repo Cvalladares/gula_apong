@@ -5,42 +5,18 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
 
   $stateProvider
 
-
-    .state('login', {
-      url: '/login',
-      templateUrl: 'templates/login.html',
-      controller: 'loginCtrl'
+    .state('addFarm', {
+      url: '/addFarm',
+      templateUrl: 'templates/addFarm.html',
+      controller: 'addFarmCtrl'
     })
 
-    .state('signup', {
-      url: '/signup',
-      templateUrl: 'templates/signup.html',
-      controller: 'signupCtrl'
+    .state('addCustomer', {
+      url: '/addCustomer',
+      templateUrl: 'templates/addCustomer.html',
+      controller: 'addCustomerCtrl'
     })
 
-    .state('productionThisWeek', {
-      url: '/productionThisWeek',
-      templateUrl: 'templates/productionThisWeek.html',
-      controller: 'productionThisWeekCtrl'
-    })
-
-    .state('myAreas', {
-      url: '/myAreas',
-      templateUrl: 'templates/myAreas.html',
-      controller: 'myAreasCtrl'
-    })
-
-    .state('addArea', {
-      url: '/addArea',
-      templateUrl: 'templates/addArea.html',
-      controller: 'addAreaCtrl'
-    })
-
-    .state('dashboardProducer', {
-      url: '/dashboardProducer',
-      templateUrl: 'templates/dashboardProducer.html',
-      controller: 'dashboardProducerCtrl'
-    })
 
     .state('dashboardBuyer', {
       url: '/dashboardBuyer',
@@ -53,6 +29,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       templateUrl: 'templates/dashboardMinister.html',
       controller: 'dashboardMinisterCtrl'
     })
+    .state('dashboardProducer', {
+      url: '/dashboardProducer',
+      templateUrl: 'templates/dashboardProducer.html',
+      controller: 'dashboardProducerCtrl'
+    })
 
     .state('help', {
       url: '/help',
@@ -60,10 +41,28 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'helpCtrl'
     })
 
-    .state('overviewOfSellers', {
-      url: '/overviewOfSellers',
-      templateUrl: 'templates/overviewOfSellers.html',
-      controller: 'overviewOfSellersCtrl'
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'loginCtrl'
+    })
+
+    .state('myFarms', {
+      url: '/myFarms',
+      templateUrl: 'templates/myFarms.html',
+      controller: 'myFarmsCtrl'
+    })
+
+    .state('myCustomers', {
+      url: '/myCustomers',
+      templateUrl: 'templates/myCustomers.html',
+      controller: 'myCustomersCtrl'
+    })
+    
+    .state('overviewOfPrice', {
+      url: '/overviewOfPrice',
+      templateUrl: 'templates/overviewOfPrice.html',
+      controller: 'overviewOfPriceCtrl'
     })
 
     .state('overviewOfProducers', {
@@ -72,16 +71,28 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'overviewOfProducersCtrl'
     })
 
-    .state('overviewOfPrice', {
-      url: '/overviewOfPrice',
-      templateUrl: 'templates/overviewOfPrice.html',
-      controller: 'overviewOfPriceCtrl'
+    .state('overviewOfSellers', {
+      url: '/overviewOfSellers',
+      templateUrl: 'templates/overviewOfSellers2.html',
+      controller: 'overviewOfSellersCtrl'
     })
 
     .state('productionOverview', {
       url: '/productionOverview',
       templateUrl: 'templates/productionOverview.html',
       controller: 'productionOverviewCtrl'
+    })
+
+    .state('productionThisWeek', {
+      url: '/productionThisWeek',
+      templateUrl: 'templates/productionThisWeek.html',
+      controller: 'productionThisWeekCtrl'
+    })
+
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'templates/signup.html',
+      controller: 'signupCtrl'
     })
 
   // .state('myProfile', {

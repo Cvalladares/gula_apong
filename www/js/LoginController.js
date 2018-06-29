@@ -1,5 +1,6 @@
 angular.module('Gula.controllers').controller('loginCtrl', function ($scope, PouchDBService, localStorageService,
-                                                                     $state, $cordovaDialogs, $ionicHistory) {
+                                                                     $state, $cordovaDialogs, $ionicHistory,
+                                                                     LoadingAnimation) {
 
   $ionicHistory.nextViewOptions({
     disableAnimate: true,
@@ -19,6 +20,7 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
 
 
   $scope.authUser = function () {
+    LoadingAnimation.show();
     localStorageService.set('user', $scope.user);
 
     PouchDBService.initPouchDbs();
@@ -41,11 +43,13 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
       .catch(function (err) {
         $cordovaDialogs.alert('Username or Password incorrect', 'Whooptidi scoop!');
         localStorageService.remove('user');
+      })
+      .finally(function () {
+        LoadingAnimation.hide();
       });
   };
 
-  function navigatePage(profile) {
-    var role = profile.Role;
+  function navigatePage(role) {
     if (role === "Producer") {
       $state.go('dashboardProducer');
     } else if (role === "Buyer") {

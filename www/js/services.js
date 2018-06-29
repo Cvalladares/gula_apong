@@ -1,7 +1,7 @@
 angular.module("Gula.services", [])
   .factory("PouchDBService", function ($rootScope, $q, localStorageService) {
 
-    var databases = ['farm', 'production', 'profile'];
+    var databases = ['farm', 'production', 'profile', 'customer'];
     var syncActive = false;
     //var remoteCouchDbUrl = 'http://10.64.115.70:5984';
     // var remoteCouchDbUrl = 'http://localhost:5984';
@@ -33,8 +33,11 @@ angular.module("Gula.services", [])
       getProfileDb: function () {
         return pouchDBs.profile;
       },
-      getDemandDb: function () {
-        return pouchDBs.demand;
+      // getDemandDb: function () {
+      //     return pouchDBs.demand;
+      //   },
+      getCustomerDb: function () {
+        return pouchDBs.customer;
       },
       initPouchDbs: initPouchDbs,
 
@@ -63,6 +66,10 @@ angular.module("Gula.services", [])
           })
           .then(function () {
             console.info('profile ✔️');
+            return setupSync('customer', couchUser);
+          })
+          .then(function () {
+            console.info('customer ✔️');
           });
 
       },
@@ -135,4 +142,17 @@ angular.module("Gula.services", [])
           throw error;
         });
     }
+  })
+  .factory('LoadingAnimation', function ($ionicLoading) {
+    return {
+      show: function () {
+        $ionicLoading.show({
+          template: '<ion-spinner class="regularSpinner" icon="ios"></ion-spinner>',
+          noBackdrop: true
+        })
+      },
+      hide: function () {
+        $ionicLoading.hide();
+      }
+    };
   });
