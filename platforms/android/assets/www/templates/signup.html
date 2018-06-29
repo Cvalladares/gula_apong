@@ -1,0 +1,70 @@
+
+<ion-view title="Signup" id="page2">
+  <ion-content padding="true" class="has-header">
+    <form id="signup-form3" class="list">
+      <ion-list id="signup-list1">
+        <label class="item item-input" id="signup-input6">
+          <span class="input-label">First name</span>
+          <input type="text" placeholder="" ng-model="user.FirstName">
+        </label>
+        <label class="item item-input" id="signup-input100">
+          <span class="input-label">Last name</span>
+          <input type="text" placeholder="" ng-model="user.LastName">
+        </label>
+        <label class="item item-input" id="signup-input9">
+          <span class="input-label">Address</span>
+          <input type="text" placeholder="" ng-model="user.Address">
+        </label>
+        <label class="item item-input" id="signup-input7">
+          <span class="input-label">Phone number</span>
+          <input type="text" placeholder="" ng-model="user.PhoneNumber">
+        </label>
+        <label class="item item-select" id="signup-input8">
+          <span class="input-label">I am in.. (select division)</span>
+          <select>
+
+            <option>Betong</option>
+            <option>Bintulu</option>
+            <option>Kapit</option>
+            <option>Kuching</option>
+            <option>Limbang</option>
+            <option>Miri</option>
+            <option>Mukah</option>
+            <option>Samarahan</option>
+            <option>Sarikei</option>
+            <option>Sibu</option>
+            <option>Sri Aman</option>
+
+          </select>
+          <input type="text" placeholder="" ng-model="user.Divison">
+        </label>
+
+      </ion-list>
+    </form>
+    <form id="signup-form13" class="list">
+      <ion-list id="signup-list3">
+        <label class="item item-input" id="signup-input10">
+          <span class="input-label">Username</span>
+          <input type="text" placeholder="" ng-model="user.username">
+        </label>
+        <label class="item item-input" id="signup-input12">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="" ng-model="user.password">
+        </label>
+        <label class="item item-select" id="signup-select1">
+          <span class="input-label">I am..</span>
+          <select>
+            <option>Producer</option>
+            <option>Buyer</option>
+            <option>Minister</option>
+            <option>Admin</option>
+          </select>
+          <input type="text" placeholder="" ng-model="user.Role">
+        </label>
+      </ion-list>
+     <a ng-click="register()" id="signup-button11" class="button button-stable button-block">Sign up</a>
+
+    </form>
+  </ion-content>
+</ion-view>
+
