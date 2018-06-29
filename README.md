@@ -30,7 +30,11 @@ bower install
 ```
 Also, it is necessary to have [jdk-8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) given that cordova has a dependency on this version of java.  Also, it is necessary for an android API-Level 23 to be used, though we have not tested with higher api levels.  
 
-Also, it is necessary to install android, ios, and webbrowsers as platforms for deployment.  The following are necessary to develop an android application.  We use cordova-android version 6.2.2 as this is a stable version whci hsi also compatible with our other dependencies in the project (Andoid API Level 23, for example).  The default version (6.1.1) is not stable and will not allow android compilation
+Also, it is necessary to install android, ios, and webbrowsers as platforms for deployment. To verify if any of these platforms are already installed, use the following:
+```bash
+cordova platforms ls
+```
+The following are necessary to develop an android application.  We use cordova-android version 6.2.2 as this is a stable version whci hsi also compatible with our other dependencies in the project (Android API Level 23, for example).  The default version (6.1.1) is not stable and will not allow android compilation
 ```bash
 cordova platform add android@6.2.2
 ionic resources
@@ -42,6 +46,13 @@ cordova prepare android
 cordova compile android
 ```
 
+#### Deployment and Emulation
+For us to be able to emulate our project in Android, it was necessary for us to install android studio and to start an android virtual device via android studio.  The Android SDK can also be downloaded via android studio, and from there we downloaded the Android API level 23.  Once the Android Virtual Device has been created, then *it is necessary to start the android virtual device via android studio* as there is a bug that does not allow ionic to start the android device via ionic.  To bypass this, start the Android Virtual Device and then launch the application by executing the following command:
+
+```bash
+ionic run android
+```
+For a detailed tutorial, please use the following [Cordova Tutorial](https://cordova.apache.org/docs/en/3.1.0/guide/cli/index.html)
 
 
 #### Plugin versions
