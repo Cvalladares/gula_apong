@@ -5,23 +5,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
 
   $stateProvider
 
-
-
-
-    .state('signup', {
-      url: '/signup',
-      templateUrl: 'templates/signup.html',
-      controller: 'signupCtrl'
-    })
-
-    .state('productionThisWeek', {
-      url: '/productionThisWeek',
-      templateUrl: 'templates/productionThisWeek.html',
-      controller: 'productionThisWeekCtrl'
-    })
-
-
-
     .state('addArea', {
       url: '/addArea',
       templateUrl: 'templates/addArea.html',
@@ -34,11 +17,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'addCustomerCtrl'
     })
 
-    .state('computeSizeFarm', {
-      url: '/computeSizeFarm',
-      templateUrl: 'templates/computeSizeFArm.html',
-      controller: 'computeSizeFarmCtrl'
-    })
 
     .state('dashboardBuyer', {
       url: '/dashboardBuyer',
@@ -75,16 +53,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'myAreasCtrl'
     })
 
-
     .state('myCustomers', {
       url: '/myCustomers',
       templateUrl: 'templates/myCustomers.html',
       controller: 'myCustomersCtrl'
     })
-    .state('overviewOfSellers', {
-      url: '/overviewOfSellers',
-      templateUrl: 'templates/overviewOfSellers2.html',
-      controller: 'overviewOfSellersCtrl'
+    .state('over' +
+      'viewOfPrice', {
+      url: '/overviewOfPrice',
+      templateUrl: 'templates/overviewOfPrice.html',
+      controller: 'overviewOfPriceCtrl'
     })
 
     .state('overviewOfProducers', {
@@ -93,16 +71,28 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'overviewOfProducersCtrl'
     })
 
-    .state('overviewOfPrice', {
-      url: '/overviewOfPrice',
-      templateUrl: 'templates/overviewOfPrice.html',
-      controller: 'overviewOfPriceCtrl'
+    .state('overviewOfSellers', {
+      url: '/overviewOfSellers',
+      templateUrl: 'templates/overviewOfSellers2.html',
+      controller: 'overviewOfSellersCtrl'
     })
 
     .state('productionOverview', {
       url: '/productionOverview',
       templateUrl: 'templates/productionOverview.html',
       controller: 'productionOverviewCtrl'
+    })
+
+    .state('productionThisWeek', {
+      url: '/productionThisWeek',
+      templateUrl: 'templates/productionThisWeek.html',
+      controller: 'productionThisWeekCtrl'
+    })
+
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'templates/signup.html',
+      controller: 'signupCtrl'
     })
 
   // .state('myProfile', {
