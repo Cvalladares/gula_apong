@@ -132,7 +132,7 @@ angular.module("Gula.services", [])
               deferred.resolve();
             });
           }).on('error', function (err) {
-            console.error(JSON.toString(err));
+            console.error(JSON.toString());
           });
           return deferred.promise;
         })
