@@ -66,6 +66,10 @@ angular.module("Gula.services", [])
           })
           .then(function () {
             console.info('profile ✔️');
+            return setupSync('customers', couchUser);
+          })
+          .then(function () {
+            console.info('customers ✔️');
           });
 
       },
