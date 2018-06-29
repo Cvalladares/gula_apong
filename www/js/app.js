@@ -6,11 +6,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
   $stateProvider
 
 
-    .state('login', {
-      url: '/login',
-      templateUrl: 'templates/login.html',
-      controller: 'loginCtrl'
-    })
+
 
     .state('signup', {
       url: '/signup',
@@ -24,17 +20,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'productionThisWeekCtrl'
     })
 
-    .state('myAreas', {
-      url: '/myAreas',
-      templateUrl: 'templates/myAreas.html',
-      controller: 'myAreasCtrl'
-    })
 
-    .state('myCustomers', {
-      url: '/myCustomers',
-      templateUrl: 'templates/myCustomers.html',
-      controller: 'myCustomersCtrl'
-    })
 
     .state('addArea', {
       url: '/addArea',
@@ -48,10 +34,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'addCustomerCtrl'
     })
 
-    .state('dashboardProducer', {
-      url: '/dashboardProducer',
-      templateUrl: 'templates/dashboardProducer.html',
-      controller: 'dashboardProducerCtrl'
+    .state('computeSizeFarm', {
+      url: '/computeSizeFarm',
+      templateUrl: 'templates/computeSizeFArm.html',
+      controller: 'computeSizeFarmCtrl'
     })
 
     .state('dashboardBuyer', {
@@ -65,6 +51,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       templateUrl: 'templates/dashboardMinister.html',
       controller: 'dashboardMinisterCtrl'
     })
+    .state('dashboardProducer', {
+      url: '/dashboardProducer',
+      templateUrl: 'templates/dashboardProducer.html',
+      controller: 'dashboardProducerCtrl'
+    })
 
     .state('help', {
       url: '/help',
@@ -72,6 +63,24 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'helpCtrl'
     })
 
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'loginCtrl'
+    })
+
+    .state('myAreas', {
+      url: '/myAreas',
+      templateUrl: 'templates/myAreas.html',
+      controller: 'myAreasCtrl'
+    })
+
+
+    .state('myCustomers', {
+      url: '/myCustomers',
+      templateUrl: 'templates/myCustomers.html',
+      controller: 'myCustomersCtrl'
+    })
     .state('overviewOfSellers', {
       url: '/overviewOfSellers',
       templateUrl: 'templates/overviewOfSellers2.html',
