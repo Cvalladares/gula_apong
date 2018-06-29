@@ -1,0 +1,23 @@
+<ion-view title="Welcome to the webshop!" id="page11">
+  <ion-content padding="true" class="has-header">
+    <form id="welcomeToTheWebshop-form6" class="list">
+      <label class="item item-input" id="welcomeToTheWebshop-input14">
+        <span class="input-label">I want to buy..</span>
+        <input type="text" placeholder="">
+      </label>
+     <!-- <label class="item item-input item-stacked-label" id="welcomeToTheWebshop-input15">-->
+        <label class="item item-input" id="welcomeToTheWebshop-input15">
+        <input type="text" placeholder="" ng-model="user.demand">
+      </label>
+      <label class="item item-select" id="welcomeToTheWebshop-select2">
+        <span class="input-label"></span>
+        <select>
+          <option>kg</option>
+          <option>Cans (1 can is 30 kg)</option>
+        </select>
+        <input type="text" placeholder="" ng-model="user.unit">
+      </label>
+      <a ng-click="submit()" id="somebutton " class="button button-positive button-block">Submit!</a>
+    </form>
+  </ion-content>
+</ion-view>
