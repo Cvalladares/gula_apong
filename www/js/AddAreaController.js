@@ -80,32 +80,4 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
     };
 
 
-  $scope.submit = function () { //the code below is executed when someone presses submit
-    //var new_index = $scope.user.index+1;
-    var farmData = {
-      trees: $scope.user.trees,
-      coords: coords,
-      area: $scope.user.CalculatedArea,
-      date: JSON.stringify(new Date()),
-    //  index: new_index
-
-    };
-
-
-    var promise;
-    if (edit) {
-      promise = PouchDBService.getFarmDb().put($scope.user);
-    } else {
-      promise = PouchDBService.getFarmDb().post(farmData);
-    }
-
-    promise.then(function (res) {
-      $ionicHistory.goBack();
-    }).catch(function (err) {
-      $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
-      console.error(err);
-    });
-  };
-
-
 });
