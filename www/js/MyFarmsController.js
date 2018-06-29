@@ -1,4 +1,4 @@
-angular.module('Gula.controllers').controller('myAreasCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
+angular.module('Gula.controllers').controller('myFarmsCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
                                                                        $state, $cordovaDialogs, $ionicHistory) {
 
   $scope.$on('$ionicView.enter', function (e) {

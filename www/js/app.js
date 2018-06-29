@@ -58,6 +58,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       templateUrl: 'templates/myCustomers.html',
       controller: 'myCustomersCtrl'
     })
+    
     .state('overviewOfPrice', {
       url: '/overviewOfPrice',
       templateUrl: 'templates/overviewOfPrice.html',
