@@ -30,10 +30,22 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'myAreasCtrl'
     })
 
+    .state('myCustomers', {
+      url: '/myCustomers',
+      templateUrl: 'templates/myCustomers.html',
+      controller: 'myCustomersCtrl'
+    })
+
     .state('addArea', {
       url: '/addArea',
       templateUrl: 'templates/addArea.html',
       controller: 'addAreaCtrl'
+    })
+
+    .state('addCustomer', {
+      url: '/addCustomer',
+      templateUrl: 'templates/addCustomer.html',
+      controller: 'addCustomerCtrl'
     })
 
     .state('dashboardProducer', {
@@ -62,7 +74,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
 
     .state('overviewOfSellers', {
       url: '/overviewOfSellers',
-      templateUrl: 'templates/overviewOfSellers.html',
+      templateUrl: 'templates/overviewOfSellers2.html',
       controller: 'overviewOfSellersCtrl'
     })
 
