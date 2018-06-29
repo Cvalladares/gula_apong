@@ -34,6 +34,7 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
 
     $scope.submit = function () { //the code below is executed when someone presses submit
       //var new_index = $scope.user.index+1;
+      LoadingAnimation.show();
       var farmData = {
         trees: $scope.user.trees,
         coords: coords,
@@ -56,6 +57,8 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
       }).catch(function (err) {
         $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
         console.error(err);
+      }).finally(function () {
+        LoadingAnimation.hide();
       });
     };
 

@@ -3,9 +3,21 @@
 
     <ion-list id="myAreaS-list4">
       <ion-item ng-repeat="customer in allCustomers ">
+        <div class = "row">
+        <div class = "col">Name: {{customer.LastName}}</div>
+        <div class = "col">Phone number: {{customer.PhoneNumber}}</div>
+        </div>
+        <!--<ion-item ng-repeat="element in customer">-->
+          <!--{{element}}-->
+          <!--console.log(element)-->
 
-        Name: {{customer.LastName}}
-        Phone number: {{customer.PhoneNumber}}
+
+
+
+
+
+        <!--Name: {{customer.LastName}}-->
+        <!--Phone number: {{customer.PhoneNumber}}-->
 
         <ion-option-button class="button-assertive" ng-click="deleteArea(area)">
           Delete
@@ -14,8 +26,17 @@
           Edit
         </ion-option-button>
       </ion-item>
+      </ion-item>
     </ion-list>
     <a ui-sref = "addCustomer()" id="myAreaS-button13" class="button button-positive button-block">Add Customer</a>
     <!--ng-click="addCustomer()"-->
   </ion-content>
 </ion-view>
+
+<div class="container">
+  <div ng-repeat="item in items" >
+    <div class="cell">{{item.att1}}</div>
+    <div class="cell">{{item.att2}}</div>
+    <div class="cell">{{item.att3}}</div>
+  </div>
+</div>

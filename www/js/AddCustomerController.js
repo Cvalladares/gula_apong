@@ -1,5 +1,5 @@
 angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scope, $rootScope, $stateParams, PouchDBService, $ionicHistory,
-                                                                      $http, localStorageService, $state) {
+                                                                      $http, localStorageService, $state, LoadingAnimation) {
 
   var addCustomerUrl = 'https://gula-server.herokuapp.com';
 
@@ -51,6 +51,8 @@ angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scop
     }).catch(function (err) {
       $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
       console.error(err);
+    }).finally(function () {
+      LoadingAnimation.hide();
     });
   };
 
