@@ -49,8 +49,8 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
       });
   };
 
-  function navigatePage(profile) {
-    var role = profile.Role;
+  function navigatePage(role) {
+ //   var role = profile.Role;
     if (role === "Producer") {
       $state.go('dashboardProducer');
     } else if (role === "Buyer") {

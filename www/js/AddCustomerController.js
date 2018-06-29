@@ -47,7 +47,6 @@ angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scop
     }
 
     promise.then(function (res) {
-      console.log("we go back");
       $ionicHistory.goBack();
     }).catch(function (err) {
       $cordovaDialogs.alert('Data is not stored correctly. Try again.', 'Whoops!');
