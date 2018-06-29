@@ -16,6 +16,34 @@ npm install -g add-cors-to-couchdb
 add-cors-to-couchdb -u USER -p PASSWORD
 ```
 
+#### Setting up the Mobile Develpment Environment
+
+Upon pulling the repostory,  certain requirements are necessary in order to properly set up the development environment. For this project, we used Webstorm as our development environment, though it may not be necessary to use this environment to further develop the project.  Also, we have multiple dependencies that must be taken care of.
+
+First, we must install all node dependencies:
+```bash
+npm install
+```
+Furthermore, we must install bower dependencies for the web development.
+```bash
+bower install
+```
+Also, it is necessary to have [jdk-8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) given that cordova has a dependency on this version of java.  Also, it is necessary for an android API-Level 23 to be used, though we have not tested with higher api levels.  
+
+Also, it is necessary to install android, ios, and webbrowsers as platforms for deployment.  The following are necessary to develop an android application.  We use cordova-android version 6.2.2 as this is a stable version whci hsi also compatible with our other dependencies in the project (Andoid API Level 23, for example).  The default version (6.1.1) is not stable and will not allow android compilation
+```bash
+cordova platform add android@6.2.2
+ionic resources
+```
+Furthermore, when compiling the project to andoid, the following commands must be executed:
+
+```bash
+cordova prepare android
+cordova compile android
+```
+
+
+
 #### Plugin versions
 You can see dependencies and versions in _bower.json_. Command line tools are listed in table below.
 
