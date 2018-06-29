@@ -1,5 +1,6 @@
 angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
-                                                                       $cordovaDialogs, $ionicHistory, $cordovaGeolocation, CalculateAreaService) {
+                                                                       $cordovaDialogs, $ionicHistory, $cordovaGeolocation, CalculateAreaService,
+                                                                       LoadingAnimation) {
     // You can use https://www.daftlogic.com/projects-google-maps-area-calculator-tool.htm
     //    to test the calculations.
     // let coordinates = [
@@ -61,6 +62,7 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
     var coords = [];
 
     $scope.startTracking = function () {
+      LoadingAnimation.show();
       var watch = $cordovaGeolocation.watchPosition({timeout: 10000, enableHighAccuracy: false});
       watch.then(null, function (err) {
         console.error(err)
@@ -68,13 +70,15 @@ angular.module('Gula.controllers').controller('addAreaCtrl', function ($scope, $
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
         coords.push([lat, long]);
-        console.log(lat + " " + long);
+        //console.log(lat + " " + long);
       });
 
       $scope.watch = watch;
     };
 
     $scope.stopTracking = function () {
+      console.log("hello we are in stop");
+      LoadingAnimation.hide();
       $scope.watch.clearWatch();
       $scope.user.CalculatedArea =(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coords))
     };
