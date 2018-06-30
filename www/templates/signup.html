@@ -25,11 +25,11 @@
         </label>
         <label class="item item-input" id="signup-input7">
           <span class="input-label">Phone number</span>
-          <input type="text" placeholder="" ng-model="user.PhoneNumber">
+          <input type="text" placeholder="" ng-model="user.Phone_Number">
         </label>
         <label class="item item-select" id="signup-input8">
           <span class="input-label">I am in.. </span>
-          <select>
+          <select ng-model="user.Division">
 
             <option>Betong</option>
             <option>Bintulu</option>
@@ -44,7 +44,6 @@
             <option>Sri Aman</option>
 
           </select>
-          <input type="text" placeholder="" ng-model="user.Divison">
         </label>
 
       </ion-list>
@@ -61,13 +60,12 @@
         </label>
         <label class="item item-select" id="signup-select1">
           <span class="input-label">I am..</span>
-          <select>
+          <select ng-model="user.Role">
             <option>Producer</option>
             <option>Buyer</option>
             <option>Minister</option>
             <option>Admin</option>
           </select>
-          <input type="text" placeholder="" ng-model="user.Role">
         </label>
       </ion-list>
      <a ng-click="register()" id="signup-button11" class="button button-positive button-block">Sign up</a>
