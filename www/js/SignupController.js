@@ -39,6 +39,8 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
 
       })
       .then(function () {
+
+        $scope.user
         return PouchDBService.getProfileDb().put($scope.user)
           .then(function () {
             $state.go('login');

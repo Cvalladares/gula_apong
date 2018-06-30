@@ -70,6 +70,7 @@ angular.module("Gula.services", [])
           })
           .then(function () {
             console.info('customer ✔️');
+
           });
 
       },
@@ -132,7 +133,7 @@ angular.module("Gula.services", [])
               deferred.resolve();
             });
           }).on('error', function (err) {
-            console.error(JSON.toString());
+            console.error(JSON.parse(err));
           });
           return deferred.promise;
         })
