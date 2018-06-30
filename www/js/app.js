@@ -47,6 +47,12 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'loginCtrl'
     })
 
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'templates/profile.html',
+      controller: 'profile'
+    })
+
     .state('myFarms', {
       url: '/myFarms',
       templateUrl: 'templates/myFarms.html',
@@ -58,7 +64,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       templateUrl: 'templates/myCustomers.html',
       controller: 'myCustomersCtrl'
     })
-    
+
     .state('overviewOfPrice', {
       url: '/overviewOfPrice',
       templateUrl: 'templates/overviewOfPrice.html',

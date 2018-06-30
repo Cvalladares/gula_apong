@@ -44,7 +44,7 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
       var farmData = {
         trees: $scope.user.trees,
         coords: coords,
-        CalculatedArea: $scope.user.CalculatedArea,
+        area: $scope.user.CalculatedArea,
         date: JSON.stringify(new Date()),
         //  index: new_index
 
