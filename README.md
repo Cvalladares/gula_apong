@@ -45,6 +45,9 @@ Furthermore, when compiling the project to andoid, the following commands must b
 cordova prepare android
 cordova compile android
 ```
+These commands generate an APK file which can be used to emulate your project in an android emulator, or to deploy on an android device.  The generated files can be found in the following folder in your project directory:
+
+platforms/android/build/outputs/apk
 
 #### Deployment and Emulation
 For us to be able to emulate our project in Android, it was necessary for us to install android studio and to start an android virtual device via android studio.  The Android SDK can also be downloaded via android studio, and from there we downloaded the Android API level 23.  Once the Android Virtual Device has been created, then *it is necessary to start the android virtual device via android studio* as there is a bug that does not allow ionic to start the android device via ionic.  To bypass this, start the Android Virtual Device and then launch the application by executing the following command:
@@ -52,7 +55,7 @@ For us to be able to emulate our project in Android, it was necessary for us to 
 ```bash
 ionic run android
 ```
-For a detailed tutorial, please use the following [Cordova Tutorial](https://cordova.apache.org/docs/en/3.1.0/guide/cli/index.html)
+For a detailed tutorial, please use the following [Cordova Emulation Tutorial](https://cordova.apache.org/docs/en/3.1.0/guide/cli/index.html).   With regards to deployment,  an APK can be generated for android applications. This can be done by following this tutorial [Ionic Deployment Tutorial](https://ionicframework.com/docs/v1/guide/publishing.html).  Following this tutorial, the output will be stored in the 
 
 
 #### Plugin versions
