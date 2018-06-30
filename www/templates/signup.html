@@ -7,8 +7,17 @@
       <!--Back</button>-->
   <!--</ion-nav-buttons>-->
 
+  <ng-messages class="form-errors"
+               for="login.loginForm.password.$error"
+               ng-if="login.loginForm.password.$touched &&  login.loginForm.password.$invalid ||
+               login.loginForm.password.$invalid && login.loginForm.$submitted">
+    <div class="form-error" ng-message="required">Password is required.</div>
+    <div class="form-error" ng-message="password">This is no valid password.</div>
+  </ng-messages>
 
   <ion-content padding="false" class="has-header">
+
+
     <form id="signup-form3" class="list">
       <ion-list id="signup-list1">
         <label class="item item-input" id="signup-input6">
@@ -17,7 +26,7 @@
         </label>
         <label class="item item-input" id="signup-input100">
           <span class="input-label">Last name</span>
-          <input type="text" placeholder="" ng-model="user.LastName">
+          <input type="text" placeholder="" ng-model="user.LastName" required>
         </label>
         <label class="item item-input" id="signup-input9">
           <span class="input-label">Address</span>
@@ -25,7 +34,7 @@
         </label>
         <label class="item item-input" id="signup-input7">
           <span class="input-label">Phone number</span>
-          <input type="text" placeholder="" ng-model="user.PhoneNumber">
+          <input type="text" placeholder="" ng-model="user.PhoneNumber" required>
         </label>
         <label class="item item-select" id="signup-input8">
           <span class="input-label">I am in.. </span>
@@ -53,12 +62,22 @@
       <ion-list id="signup-list3">
         <label class="item item-input" id="signup-input10">
           <span class="input-label">Username</span>
-          <input type="text" placeholder="" ng-model="user.username">
+          <input type="text" placeholder="" ng-model="user.username" required name="username">
         </label>
-        <label class="item item-input" id="signup-input12">
+
+        <label class="item item-input input-field" ng-class="{ 'has-error':  login.loginForm.password.$touched &&
+         login.loginForm.password.$invalid ||  login.loginForm.password.$invalid && login.loginForm.$submitted}">
+
           <span class="input-label">Password</span>
-          <input type="password" placeholder="" ng-model="user.password">
+          <i class="icon ion-locked placeholder-icon"></i>
+          <input type="password" placeholder="Password" ng-model="login.loginData.password" required
+                 spellcheck="false" name="password">
         </label>
+
+        <!--<label class="item item-input" id="signup-input12">-->
+          <!--<span class="input-label">Password</span>-->
+          <!--<input type="password" placeholder="" ng-model="user.password">-->
+        <!--</label>-->
         <label class="item item-select" id="signup-select1">
           <span class="input-label">I am..</span>
           <select>
@@ -72,6 +91,9 @@
       </ion-list>
      <a ng-click="register()" id="signup-button11" class="button button-positive button-block">Sign up</a>
     </form>
+
+
+
   </ion-content>
 </ion-view>
 
