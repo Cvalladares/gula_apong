@@ -18,15 +18,17 @@ angular.module('Gula.controllers').controller('myCustomersCtrl', function ($scop
 
 
   $scope.deleteCustomer = function (customer) {
+    console.log(PouchDBService.getCustomerDb().get(customer._id));
     PouchDBService.getCustomerDb().get(customer._id)
+
       .then(function (res) {
         res._deleted = true;
         console.log(res);
 
-        return PouchDBService.getFarmDb().remove(res);
+        return PouchDBService.getCustomerDb().remove(res);
       })
       .then(function (res) {
-        _.remove($scope.allAreas, {_id: res.id});
+        _.remove($scope.allCustomers, {_id: res.id});
         $scope.$digest();
       })
   };
@@ -36,11 +38,6 @@ angular.module('Gula.controllers').controller('myCustomersCtrl', function ($scop
     $state.go('addCustomer');
   };
 
-  $scope.addArea = function () {
-
-    $state.go('addCustomer');
-
-  }
 
 });
 

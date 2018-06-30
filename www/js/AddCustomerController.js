@@ -1,14 +1,14 @@
 angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scope, $rootScope, $stateParams, PouchDBService, $ionicHistory,
                                                                       $http, localStorageService, $state, LoadingAnimation) {
 
-  var addCustomerUrl = 'https://gula-server.herokuapp.com';
+  //var addCustomerUrl = 'https://gula-server.herokuapp.com';
 
-  $scope.user = {
-    FirstName: "",
-    LastName: "",
-    PhoneNumber: "",
-    IsReselling: "", //IsReselling: yes if it is middleman, no if it is not a middleman.
-  };
+ // $scope.user = {
+   // FirstName: "",
+   // LastName: "",
+   // PhoneNumber: "",
+    //IsReselling: "", //IsReselling: yes if it is middleman, no if it is not a middleman.
+  //};
 
   var edit = false;
   $scope.$on('$ionicView.enter', function (e) {
@@ -30,6 +30,7 @@ angular.module('Gula.controllers').controller('addCustomerCtrl', function ($scop
 
   $scope.submit = function () { //the code below is executed when someone presses submit
     //var new_index = $scope.user.index+1;
+    LoadingAnimation.show();
     var customerData = {
       FirstName: $scope.user.FirstName,
       LastName: $scope.user.LastName,
