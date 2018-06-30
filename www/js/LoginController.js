@@ -4,7 +4,7 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
 
   $ionicHistory.nextViewOptions({
     disableAnimate: true,
-    disableBack: true
+    //disableBack: true;
   });
 
   $scope.$on('$ionicView.enter', function (e) {

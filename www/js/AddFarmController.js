@@ -13,6 +13,12 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
     //   [1.6053413150518685,110.365729389366]
     // ];
 
+  $scope.myGoBack = function() {
+    // $ionicHistory.goBack() does not work for some reason
+    $state.go('login');
+
+  };
+
 
     var edit = false;
     $scope.$on('$ionicView.enter', function (e) {

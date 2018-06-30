@@ -1,6 +1,12 @@
 angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory,
                                                                       $http, localStorageService, $state) {
 
+  $scope.myGoBack = function() {
+    // $ionicHistory.goBack() does not work for some reason
+    $state.go('login');
+
+  };
+
   var signupUrl = 'https://gula-server.herokuapp.com';
 
   $scope.user = {
