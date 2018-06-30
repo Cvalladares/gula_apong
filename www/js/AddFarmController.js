@@ -1,6 +1,6 @@
 angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
                                                                        $cordovaDialogs, $ionicHistory, $cordovaGeolocation, CalculateAreaService,
-                                                                       LoadingAnimation) {
+                                                                       LoadingAnimation, $ionicPopup) {
     // You can use https://www.daftlogic.com/projects-google-maps-area-calculator-tool.htm
     //    to test the calculations.
     // let coordinates = [
@@ -12,6 +12,26 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
     //   [1.6077650788812101,110.3652787782521],
     //   [1.6053413150518685,110.365729389366]
     // ];
+  // When button is clicked, the popup will be shown...
+  function showConfirm() {
+
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Tracking GPS coordinates..',
+      cancelText: 'Cancel',
+      okText: 'I finished my walk'
+    });
+
+    confirmPopup.then(function(res) {
+      if(res) {
+       // walk is finished!
+        $scope.stopTracking();
+      } else {
+        //cancelled...
+        $scope.stopTracking();
+      }
+    });
+
+  };
 
   $scope.myGoBack = function() {
     // $ionicHistory.goBack() does not work for some reason
@@ -40,7 +60,8 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
 
     $scope.submit = function () { //the code below is executed when someone presses submit
       //var new_index = $scope.user.index+1;
-      LoadingAnimation.show();
+     // LoadingAnimation.show();
+     // showConfirm();
       var farmData = {
         trees: $scope.user.trees,
         coords: coords,
@@ -71,7 +92,8 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
     var coords = [];
 
     $scope.startTracking = function () {
-      LoadingAnimation.show();
+      //LoadingAnimation.show();
+      showConfirm();
       var watch = $cordovaGeolocation.watchPosition({timeout: 10000, enableHighAccuracy: false});
       watch.then(null, function (err) {
         console.error(err)
@@ -86,8 +108,8 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
     };
 
     $scope.stopTracking = function () {
-      console.log("hello we are in stop");
-      LoadingAnimation.hide();
+    //  console.log("hello we are in stop");
+     // LoadingAnimation.hide();
       $scope.watch.clearWatch();
       $scope.user.CalculatedArea =(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coords))
     };

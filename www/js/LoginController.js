@@ -1,6 +1,6 @@
 angular.module('Gula.controllers').controller('loginCtrl', function ($scope, PouchDBService, localStorageService,
                                                                      $state, $cordovaDialogs, $ionicHistory,
-                                                                     LoadingAnimation) {
+                                                                     LoadingAnimation, $ionicPopup, $ionicLoading) {
 
   $ionicHistory.nextViewOptions({
     disableAnimate: true,
@@ -45,7 +45,7 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
         localStorageService.remove('user');
       })
       .finally(function () {
-        LoadingAnimation.hide();
+        //    LoadingAnimation.hide();
       });
   };
 
