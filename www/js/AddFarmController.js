@@ -38,16 +38,13 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
       delete $rootScope.areaId;
     });
 
-    $scope.submit = function () { //the code below is executed when someone presses submit
-      //var new_index = $scope.user.index+1;
+    $scope.submit = function () {
       LoadingAnimation.show();
       var farmData = {
         trees: $scope.user.trees,
         coords: coords,
         area: $scope.user.CalculatedArea,
         date: JSON.stringify(new Date()),
-        //  index: new_index
-
       };
 
 
@@ -71,7 +68,6 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
     var coords = [];
 
     $scope.startTracking = function () {
-      LoadingAnimation.show();
       var watch = $cordovaGeolocation.watchPosition({timeout: 10000, enableHighAccuracy: false});
       watch.then(null, function (err) {
         console.error(err)
@@ -87,7 +83,6 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
 
     $scope.stopTracking = function () {
       console.log("hello we are in stop");
-      LoadingAnimation.hide();
       $scope.watch.clearWatch();
       $scope.user.CalculatedArea =(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coords))
     };

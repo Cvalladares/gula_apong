@@ -1,7 +1,7 @@
 angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $stateParams, PouchDBService, $ionicHistory,
                                                                       $http, localStorageService, $state) {
 
-  $scope.myGoBack = function() {
+  $scope.myGoBack = function () {
     // $ionicHistory.goBack() does not work for some reason
     $state.go('login');
 
@@ -35,19 +35,19 @@ angular.module('Gula.controllers').controller('signupCtrl', function ($scope, $s
 
         delete $scope.user.password;
         return PouchDBService.initPouchDbs();
-        // return PouchDBService.initSyncForUser();
-
+      })
+      .catch(function (err) {
+        throw err;
       })
       .then(function () {
-
-        $scope.user
-        return PouchDBService.getProfileDb().put($scope.user)
-          .then(function () {
-            $state.go('login');
-
-          })
+        return PouchDBService.getProfileDb().put($scope.user);
       })
       .then(function () {
+        localStorageService.remove('user');
+        $state.go('login');
+      })
+      .catch(function (err) {
+        console.error(err);
       });
 
   };
