@@ -1,6 +1,6 @@
 angular.module('Gula.controllers')
 
-  .controller('dashboardProducerCtrl', function ($scope, PouchDBService) {
+  .controller('dashboardProducerCtrl', function ($scope, PouchDBService, $state) {
 
 
 
@@ -92,7 +92,9 @@ angular.module('Gula.controllers')
         console.log("data failed to be fetched");
         console.log(err)
       });
-
-
     });
+
+    $scope.gotoProfile = function () {
+      $state.go('profile');
+    }
   });
