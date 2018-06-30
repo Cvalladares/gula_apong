@@ -14,7 +14,7 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
 
     var user = localStorageService.get('user');
     if ((user != null) && (typeof user.id != 'undefined')) {
-      navigatePage(user.Role);
+      navigatePage(user);
     }
   });
 
@@ -49,12 +49,13 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
       });
   };
 
-  function navigatePage(role) {
-    if (role === "Producer") {
+  function navigatePage(user) {
+
+    if (user.Role == "Producer") {
       $state.go('dashboardProducer');
-    } else if (role === "Buyer") {
+    } else if (user.Role == "Buyer") {
       $state.go('dashboardBuyer');
-    } else if (role === "Minister") {
+    } else if (user.Role == "Minister") {
       $state.go('dashboardMinister');
     } else {
       $state.go('dashboardProducer');

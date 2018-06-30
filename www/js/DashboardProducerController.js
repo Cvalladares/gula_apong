@@ -85,7 +85,7 @@ angular.module('Gula.controllers')
 
         $scope.weeklyProduction.sort();
 
-        console.log($scope.weeklyProduction);
+       // console.log($scope.weeklyProduction);
         productionChart.series[0].setData($scope.weeklyProduction,true);
 
       }).catch(function (err) {
