@@ -17,17 +17,21 @@
         <input type="number" placeholder="(optional)" ng-model="user.CalculatedArea">
       </label>
 
-    or, compute the size of by walking around your farm:
+      or, compute the size of by walking around your farm:
 
-    <button ng-click="startTracking()" id="addArea-button21" class="button button-balanced button-block">Start walk
-      around farm
-    </button>
+      <button ng-if="!trackingInProgress" ng-click="startTracking()" id="addArea-button21"
+              class="button button-balanced button-block">Start walk
+        around farm
+      </button>
 
-    <button ng-click="stopTracking()" id="addArea-button29" class="button button-assertive button-block">End walk around
-      farm
-    </button>
+      <ion-spinner ng-if="trackingInProgress" name="bubbles"></ion-spinner>
 
-    <a ng-click="submit()" id="addArea-button12" class="button button-positive button-block">Submit!</a>
+      <button ng-if="trackingInProgress" ng-click="stopTracking()" id="addArea-button29"
+              class="button button-assertive button-block">End walk around
+        farm
+      </button>
+
+      <a ng-click="submit()" id="addArea-button12" class="button button-positive button-block">Submit!</a>
 
     </form>
   </ion-content>
