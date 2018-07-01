@@ -25,12 +25,12 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
   var edit = false;
   $scope.$on('$ionicView.enter', function (e) {
 
-    $scope.user = {trees: '', CalculatedArea: ''};
+    $scope.farm = {trees: '', CalculatedArea: '', coords: []};
     if ($rootScope.areaId) {
       edit = true;
       PouchDBService.getFarmDb().get($rootScope.areaId)
         .then(function (res) {
-          $scope.user = res;
+          $scope.farm = res;
           $scope.$digest();
         })
     }
@@ -42,19 +42,12 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
 
   $scope.submit = function () {
     LoadingAnimation.show();
-    var farmData = {
-      trees: $scope.user.trees,
-      coords: coords,
-      area: $scope.user.CalculatedArea,
-      date: JSON.stringify(new Date()),
-    };
-
 
     var promise;
     if (edit) {
-      promise = PouchDBService.getFarmDb().put($scope.user);
+      promise = PouchDBService.getFarmDb().put($scope.farm);
     } else {
-      promise = PouchDBService.getFarmDb().post(farmData);
+      promise = PouchDBService.getFarmDb().post($scope.farm);
     }
 
     promise.then(function (res) {
@@ -67,16 +60,15 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
     });
   };
 
-  var coords = [];
   $scope.startTracking = function () {
-    coords = [];
+    $scope.farm.coords = [];
     var watch = $cordovaGeolocation.watchPosition({timeout: 10000, enableHighAccuracy: false});
     watch.then(null, function (err) {
       console.error(err)
     }, function (position) {
       var lat = position.coords.latitude;
       var long = position.coords.longitude;
-      coords.push([lat, long]);
+      $scope.farm.coords.push([lat, long]);
       console.debug(lat+' '+long)
     });
 
@@ -87,7 +79,7 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
   $scope.stopTracking = function () {
     $scope.watch.clearWatch();
     $scope.trackingInProgress = false;
-    $scope.user.CalculatedArea = (CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters(coords))
+    $scope.farm.CalculatedArea = parseInt(CalculateAreaService.calculateAreaOfGPSPolygonOnEarthInSquareMeters($scope.farm.coords))
   };
 
 
