@@ -36,9 +36,9 @@ angular.module("Gula.services", [])
       getProfileDb: function () {
         return pouchDBs.profile;
       },
-      // getDemandDb: function () {
-      //     return pouchDBs.demand;
-      //   },
+      getDemandDb: function () {
+          return pouchDBs.demand;
+        },
       getCustomerDb: function () {
         return pouchDBs.customer;
       },
