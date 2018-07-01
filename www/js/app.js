@@ -89,10 +89,16 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
       controller: 'productionOverviewCtrl'
     })
 
-    .state('productionThisWeek', {
-      url: '/productionThisWeek',
-      templateUrl: 'templates/productionThisWeek.html',
-      controller: 'productionThisWeekCtrl'
+    .state('addProduction', {
+      url: '/addProduction',
+      templateUrl: 'templates/addProduction.html',
+      controller: 'addProduction'
+    })
+
+    .state('production', {
+      url: '/production',
+      templateUrl: 'templates/production.html',
+      controller: 'production'
     })
 
     .state('signup', {

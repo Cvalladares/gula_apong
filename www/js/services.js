@@ -1,7 +1,10 @@
 angular.module("Gula.services", [])
   .factory("PouchDBService", function ($rootScope, $q, localStorageService) {
 
-    var databases = ['farm', 'production', 'profile', 'customer'];
+    // buyer: profile, demand
+    // producer: farm, production, profile, customer
+    // ministry: profile
+    var databases = ['farm', 'production', 'profile', 'customer', 'demand'];
     var syncActive = false;
     //var remoteCouchDbUrl = 'http://10.64.115.70:5984';
     // var remoteCouchDbUrl = 'http://localhost:5984';
@@ -33,9 +36,9 @@ angular.module("Gula.services", [])
       getProfileDb: function () {
         return pouchDBs.profile;
       },
-      // getDemandDb: function () {
-      //     return pouchDBs.demand;
-      //   },
+      getDemandDb: function () {
+          return pouchDBs.demand;
+        },
       getCustomerDb: function () {
         return pouchDBs.customer;
       },

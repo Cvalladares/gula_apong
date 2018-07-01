@@ -5,13 +5,6 @@ angular.module("Gula.services")
     let EARTH_DIAMETER = EARTH_RADIUS * 2;
     let EARTH_CIRCUMFERENCE = EARTH_DIAMETER * Math.PI;
 
-    // Define lists to hold separate latitude and longitude values
-    var listY = [];
-    var listX = [];
-
-    // Define a list to hold area values for individual triangle sub-segments
-    var listArea = [];
-
 
     /**
      * Calculate the are of two different segments
@@ -65,6 +58,12 @@ angular.module("Gula.services")
        *  @return {Number}     Represents the sum of all segment areas.
        */
       calculateAreaOfGPSPolygonOnEarthInSquareMeters: function (coordinates) {
+        // Define lists to hold separate latitude and longitude values
+        var listY = [];
+        var listX = [];
+
+        // Define a list to hold area values for individual triangle sub-segments
+        var listArea = [];
 
         // Only Calculate Area of a polygon (Anything with at least 3 points)
         if (coordinates.length < 3) {
@@ -93,8 +92,8 @@ angular.module("Gula.services")
 
         for (var i = 1; i < listX.length; i++) {
           // Fetch two consecutive points
-          let x1 = listX[i-1];
-          let y1 = listY[i-1]
+          let x1 = listX[i - 1];
+          let y1 = listY[i - 1]
           let x2 = listX[i];
           let y2 = listY[i];
 

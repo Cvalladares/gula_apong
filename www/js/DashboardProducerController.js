@@ -62,7 +62,7 @@ angular.module('Gula.controllers')
     // TODO: Define the Name of the farmer owning the Entity
     productionChart.addSeries({
       name: 'Jose Dynamic',
-      data: $scope.weeklyProduction
+      data: [{}]
     });
 
 
@@ -85,8 +85,7 @@ angular.module('Gula.controllers')
 
         $scope.weeklyProduction.sort();
 
-       // console.log($scope.weeklyProduction);
-        productionChart.series[0].setData($scope.weeklyProduction,true);
+        productionChart.series[0].setData($scope.weeklyProduction, true);
 
       }).catch(function (err) {
         console.log("data failed to be fetched");
