@@ -72,6 +72,8 @@ You can see dependencies and versions in _bower.json_. Command line tools are li
 #### Setup data (manually)
 Create databases for user _user_1_farm_, _user_1_production_, _user_1_profile_.
 
+> `http` command can be used afer installing [httpie](https://github.com/jakubroztocil/httpie/) python module
+
 Create user in __users_ table
 ```bash
 http -v PUT http://admin:admin@localhost:5984/_users/org.couchdb.user:1 name=1 type=user roles:='[]' password=password
