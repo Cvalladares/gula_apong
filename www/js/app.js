@@ -79,7 +79,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
 
     .state('overviewOfSellers', {
       url: '/overviewOfSellers',
-      templateUrl: 'templates/overviewOfSellers2.html',
+      templateUrl: 'templates/overviewOfSellers.html',
       controller: 'overviewOfSellersCtrl'
     })
 

@@ -15,7 +15,7 @@ angular.module('Gula.controllers')
       xAxis: {
         type: 'datetime',
         title: {
-          text: 'Week'
+          text: 'Date'
         },
         labels: {
           rotation: 100
@@ -61,7 +61,7 @@ angular.module('Gula.controllers')
 
     // TODO: Define the Name of the farmer owning the Entity
     productionChart.addSeries({
-      name: 'Jose Dynamic',
+      name: 'Gula Apong produced',
       data: [{}]
     });
 

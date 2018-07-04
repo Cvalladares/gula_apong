@@ -1,11 +1,6 @@
 angular.module('Gula.controllers').controller('myCustomersCtrl', function ($scope, $rootScope, PouchDBService, localStorageService,
                                                                        $state, $cordovaDialogs, $ionicHistory) {
 
-  $scope.myGoBack = function() {
-   // $ionicHistory.goBack() does not work for some reason
-      $state.go('dashboardProducer');
-
-  };
 
   $scope.addCustomer = function () {
     $state.go('addCustomer');

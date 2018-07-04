@@ -15,12 +15,6 @@ angular.module('Gula.controllers').controller('addFarmCtrl', function ($scope, $
 
   $scope.trackingInProgress = false;
 
-  $scope.myGoBack = function () {
-    // $ionicHistory.goBack() does not work for some reason
-    $state.go('login');
-
-  };
-
 
   var edit = false;
   $scope.$on('$ionicView.enter', function (e) {

@@ -45,7 +45,7 @@ angular.module('Gula.controllers').controller('loginCtrl', function ($scope, Pou
         localStorageService.remove('user');
       })
       .finally(function () {
-        //    LoadingAnimation.hide();
+            LoadingAnimation.hide();
       });
   };
 
